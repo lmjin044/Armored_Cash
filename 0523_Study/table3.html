@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap');
+        /* 이렇게 하면 CSS 주석이 됨*/
+
+        /* td{
+            border-width:1px;
+            border-color:black;
+            border-style:solid;
+        }
+
+        th{
+            border:1px solid black;
+        } */
+
+        table{
+            border-collapse:collapse;
+        }
+
+        td, th{
+            border:1px solid black; 
+            text-align:center;
+        }
+        
+        .width_100{width:100px;}
+        .width_80{width:80px}
+        .bg_yellow{background-color:yellow}
+        .bg_lightgreen{background-color:lightgreen;}
+        tr{height:40px}
+
+        tr:hover{
+            background-color: #ccc;
+            color:blue;
+            font-size:20px;
+            font-family: "Nanum Pen Script", cursive;
+            font-weight: 100;
+            font-style: normal;
+        }
+        
+    </style>
+<!--
+1)그냥 color로 하면 글씨 색 변경
+2)font-weight는 100단위(100~900)
+3)font-family는 글꼴 : 메모장에 적용 가능한 것들로만 변경 가능
+4)구글에서 제공하는 폰트(font.google.com)에서는 무료
+ ※다운로드 받아도 되고 임베디드 코드 통해서도 가능
+ ※임베디드 코드는 각종 os 기준을 확인해야 함
+ ※link 방식은 그대로 복사해서 head 아래에 붙여넣기
+ ※import는 @import 구문을 복사해   
+-->
+</head>
+<body>
+    
+    <table>
+        <thead>
+            <tr>
+                <th id="title_school"class="width_100 bg_yellow">학교명</th>
+                <th id="title_dept" class="width_100 bg_yellow">학과명</th>
+                <th id="title_name" class="width_100 bg_lightgreen">이름</th>
+                <th class="widht_80 bg_lightgreen">성적</th>
+            </tr>
+        </thead>
+
+        <tbody class="title">
+            <tr>
+                <td>A대학교</td>
+                <td>컴공과</td>
+                <td>이순신</td>
+                <td>4.3/4.5</td>
+            </tr>
+            <tr>
+                <td>B대학교</td>
+                <td>국문과</td>
+                <td>한석봉</td>
+                <td>3.9/4.5</td>
+            </tr>
+            <tr>
+                <td>C대학교</td>
+                <td>기계과</td>
+                <td>장영실</td>
+                <td>2.5/4.5</td>
+            </tr>
+
+        </tbody>
+     
+        <tfoot>
+            <tr>
+                <th class="bg_yellow">학교명</th>
+                <th class="bg_yellow">학과명</th>
+                <th class="bg_lightgreen">이름</th>
+                <th class="bg_lightgreen">성적</th>
+            </tr>
+        </tfoot>
+
+    </table>
+
+
+
+</body>
+</html>
