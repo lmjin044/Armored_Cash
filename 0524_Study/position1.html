@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>태그 포지션</title>
+    <style type="text/css">
+        *{margin:0; padding:0; box-sizing: border-box;} 
+        /* *표시는 all을 뜻함. html, p태그의 margin과 padding 또한 사라짐
+        그리고 박스끼리 겹치도록 해당 설정을 해야 함. */
+       
+        #box1{
+            width:300px; height:300px;
+            background-color:blue;
+        }
+
+        #box2{
+            width:300px; height:300px;
+            background-color: yellow;
+            position:relative; 
+            /*position은 태그를 이동시키는 용도이며 absolute는 body 태그를 기준으로 절대적으로 강제 이동을 시키는 방식
+              relative 옵션은 원래 있어야 하는 위치(별도로 지정을 하지 않은)의 왼쪽 위 꼭짓점을 기준으로 이동을 시키는 방식. 
+              대부분 상위 태그에 의해서 absolute 혹은 relative를 써야 하는지 결정됨. */
+            bottom:150px;              /*막상 0을 해도 유격이 생기는데 이는 box1에 속한 body의 margin이 8px을 차지하고 있기 때문*/
+            left:150px;
+
+           
+            /* margin-left:300px; margin-top:300px;
+             원래 있던 위치 기준으로 margin 값이 형성된다.*/
+        }
+
+    </style>
+
+
+
+</head>
+<body>
+    <div id="parent1">
+        <div id="box1"></div>
+        <div id="box2"></div>
+    <div>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>태그 포지션</title>
+    <style type="text/css">
+        *{margin:0; padding:0; box-sizing: border-box;} 
+       
+        #parent1{
+            margin-top:100px;
+            margin-left:50px;
+            position:absolute;
+            /* 3) 그래서 여기에 포지션이 있으면 여길 먼저 참조하고 그 다음에 하위태그의 포지션을 참고한다. 
+                  기본적으로 모든 태그의 포지션은 static이 들어가서 이걸로는 부모가 되지 않는다. */
+
+        }
+        #box1{
+            width:300px; height:300px;
+            background-color:blue;
+        }
+
+        #box2{
+            width:300px; height:300px;
+            background-color: yellow;
+            position:relative; /*4) 상위태그의 영향을 받는 건 absolute only*/
+            /*2) 그러나 position을 가지고 있어야 그 기준으로 움직인다. 만약 없다면 body가 최상위. */
+            top:20px;
+        }
+
+    </style>
+
+
+
+</head>
+<body>
+    <div id="parent1"> <!-- 1) 아래 두 박스의 새 기준점이 상위태그(parent1)으로 되었다. -->
+        <div id="box1"></div>
+        <div id="box2"></div>
+    <div>
+
+</body>
+</html>
+
+<!--
+Position태그 JUNGRI.YOYAK
+
+    position은 화면에서 태그의 위치를 표시하기 위한 속성이다.
+    position에는 static, relative, absolute, fixed 등이 있다.
+    html의 태그에 별도로 position을 지정하지 않으면 static 상태다.
+     1) static : html문서에 작성된 태그의 위치에 표시해주는 상태이다.
+     2) relative : static 상태일 때의 위치를 기준으로 함 (x,y = 0,0)
+                   부모의 크기를 포함함
+                → top    : 양수 값 입력하면 y축 좌표 증가
+                           음수 값 입력하면 y축 좌표 감소
+                → left   : 양수 = x축 값 증가
+                           음수 = x축 값 감소
+                → right  : 양수 = x축 값 감소
+                           음수 = x축 값 증가
+                → bottom : 양수 = y축 값 감소          
+                           음수 = y축 값 증가
+        ☆ 상위태그들 중 position(relative, absolute)를 가지고 있어도 기준은 변하지 않음.
+     3) absolute : 부모(상위)태그의 시작좌표를 기준으로 함.
+        ☆ 부모 태그가 position(relative, absolute)을 가지고 있지 않으면 
+           위쪽 상위 태그들 중 position(relative, absolute)을 가진 태그가 기준
+           단, 상위 태그 중 아무도 position을 가지지 않으면 기준은 body가 된다.
+                → top    : 상위 태그 상단을 기준으로 y축 증감
+                → left   : 상위 태그 왼쪽을 기준으로 x축 증감
+                → right  : 상위 태그 오른쪽을 기준으로 x축 증감
+                → bottom : 상위 태그 하단을 기준으로 y축 증감
+
+-->

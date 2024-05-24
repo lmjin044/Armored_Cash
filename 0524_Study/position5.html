@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>태그 포지션22</title>
+    <style>
+        *{margin:0; padding:0; box-sizing: border-box;}
+        ul{list-style-type:none;}
+          /*만약 어떠한 모양도 사용하지 않겠다고 하면 none*/
+        
+        #wrap{
+            width:1000px;
+            margin:0 auto;
+            padding:20px 0;
+            border-bottom:2px solid #ccc;
+             /*아랫줄만 보이게 만드는 거*/
+            position:relative;
+       
+        }
+
+        .box{
+            width:100px;
+            padding:10px 0;
+        }
+
+        #box1{
+            color:black;
+            position:relative;
+            left:50px;
+        }
+
+        #box2{
+            color:red;
+            position:absolute;
+            right:50px;
+            top:20px;
+            
+        }
+
+        /*만약 위치 설정 변경 없이 설정값을 relative로 해버리면 글씨가 선 아래로 내려감*/
+
+        #box3{
+            color:blue;
+            position:relative;
+            left:50px;
+        }
+        
+        #nav{
+            width:1000px; margin:0 auto;
+            position:sticky;
+            top:0px;
+
+            /*sticky : 좌표 이상으로 스크롤이 아래로 내려갈 경우 지정한 위치에 고정
+                       반대로 좌표보다 스크롤이 위로 올라가면 원래 위치에 고정
+                       top으로 주려면 해당 태그 위에 위치한 오브젝트의 길이보다 넘기면 안 됨.
+                       그러면 본래 위치보다 내려가버려
+                       */
+
+        }
+
+        #content{
+            height:3000px;
+        }
+
+        #sub{
+            position:fixed;
+            top:150px;
+            left:30px;
+            
+            /*fixed는 스크롤을 움직여도 브라우저 기준으로 항상 그 자리에 고정하는 그런거
+            브라우저 기준으로 좌표를 잡아주면 된다.*/
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="box1" class="box">로그인</div>
+        <div id="box2" class="box">사이트맵</div>
+        <div id="box3" class="box">배달의민족</div>
+    </div>
+
+    <div id="nav">
+        <b>HOME</b> 
+        <b>한식</b>
+        <b>일식</b>
+        <b>중식</b> 
+        <b>찜/탕</b>
+        <b>고기</b>
+    </div>
+
+    <div id="content"></div>
+
+
+    <div id="sub">
+        <ul id="list">
+            <li>햄버거</li>
+            <li>치킨</li>
+            <li>피자</li>
+            <li>라면</li>
+            <li>국밥</li>
+        </ul>
+
+        <!--ul태그는 margin과 padding 둘 다 가짐.-->
+    </div>
+</body>
+</html>

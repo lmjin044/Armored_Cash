@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0; padding:0; box-sizing:border-box;}
+
+        #parent1{
+            width:900px;
+            position:absolute;
+         }
+
+        #box1{
+            background-color:blue;
+            width:300px;
+            height:300px;
+        }
+
+        #box2{
+            background-color:yellow;
+            width:300px;
+            height:300px;
+            position:relative;
+            left:300px;
+        }
+
+        #box3{
+            background-color:red;
+            width:300px;
+            height:300px;
+            position:relative;
+            left:600px;           
+        }
+
+/*부모에게 영향을 주기 위해서는 relative를 사용해야 함
+right로 이동하면 오른쪽으로 이동해버려서 확인이 안 됨*/
+
+        #box4{
+            background-color:peru;
+            width:300px;
+            height:300px;
+            position:absolute;
+            top:0px;
+            left:600px;
+           /*
+           여긴 잘못 적은 오답임.
+           position:relative;
+            bottom:900px; */  
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div id="parent1">
+        <div id="box1"></div>
+        <div id="box2"></div>
+        <div id="box3"></div>
+        <div id="box4"></div>
+    </div>
+
+
+</body>
+</html>
