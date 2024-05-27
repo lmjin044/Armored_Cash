@@ -1,0 +1,234 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+ul{
+    list-style-type:none;   /*리스트 앞에 점 붙일건지 말건지를 결정하는거*/
+}
+
+#wrap{
+    width:1200px;
+    margin:0 auto;
+    position:relative;
+}
+
+#header{
+    width:100%;
+    margin-bottom:20px;          /*#main 태그와의 간격을 의미*/
+    position:relative;
+}
+
+#top{
+    background-color:#3b414d;
+    color:#eee;
+    width:100%;
+}
+
+.top_text_box{
+    text-align:right;
+    padding-right:50px;
+}
+
+#top .top_text{                 /*해당 클래스에 일제히 적용됨*/
+    display:inline-block;
+    padding:8px 15px;
+}
+
+#top .top_text:nth-child(2){
+    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
+}
+
+#nav{
+    width:100%;
+    position:relative;
+    height:106px;           
+}
+#logo_box{
+    padding:8px 0;             /*margin을 쓰면 쓴 만큼 이미지 크기가 늘어남*/
+    float : left;
+}
+
+#logo_box > img{                      /*사진 크기 조절은 div로 하는게 아님*/
+    width:90px;
+}
+
+
+#menu_list{
+    height:106px;                   /*만약 패딩이 아닌 방식을 쓴다면?*/
+    position:absolute;
+    right:0;                         
+    /*padding:40px 0;*/             /*ul태그에 패딩값을 설정하면 float 설정된 li태그들도 영향을 받는다*/
+}
+
+#menu_list .menu{
+    float : left;               /*정렬 방향을 설정함 여기서는 왼쪽 기준*/
+    position:relative;          /*얘는 absolute 쓰면 글자들이 죄다 합쳐진다*/
+    top:30px;
+    padding:0 15px;             /*left:100px; 글자를 오른쪽으로 옮겼을 때 글자가 빠져나온다면 얘가 원인*/
+    font-size:25px;
+}
+
+#menu_list .menu:hover{
+    cursor:pointer;             /*마우스커서 할 때의 그 커서 맞음*/
+    color:brown;
+    font-weight:800;
+    text-shadow:3px 3px 2px #444;      
+         /*x값, y값,(음수표시 시 왼쪽, 아래로 각각 이동)
+         그림자 굵기, 그림자 색을 각각 지정하는 구문 */ 
+}
+       
+#main{
+    width:100%;
+
+}
+
+#slide{
+    width:100%;
+}
+
+#slide .slide_image{
+    background:url(../image/slide.jpeg) no-repeat center;
+    background-size:cover;
+    height:350px;
+}
+
+/*만약 백그라운드 이미지 명령어를 간소화하고 싶다면 아래와 같이 하면 된다
+background:url(이미지 있는 주소) 반복여부 화면에 비칠 너비*/
+
+#slide{
+    width:100%;
+    position:relative;
+}
+
+.move_bt{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background-color:#eee;
+    opacity:0.7;                /*이건 투명도 조절. 1에 가까울수록 불투명, 0에 가까울수록 불투명*/
+    padding:1px 5px 5px 5px;
+    font-size:25px;
+    cursor:pointer;
+}
+
+.left{  left:10px;  }
+.right{ right:10px; }
+
+/* 만약 .move로 위치를 잡고자 한다면 : 
+
+.move{
+    position:absolute;
+    top:0;
+    left:0;
+    height:350px;
+}
+    */
+
+
+#content{
+    width:100%;
+    height:280px;
+    padding:20px;
+}
+
+.left_content{
+    float:left;
+    width:50%;
+}
+
+.left_content .notice .title{
+    line-height:40px;
+}
+
+.right_content{
+    width:50%;
+    padding:10px;
+    float:left;
+}
+
+.event_top{
+    background: url(../image/event1.jpeg) no-repeat center;
+    background-size:cover;
+    height:105px;
+    border-radius:10px;
+    box-shadow:inset 3px 3px 5px #666;
+}
+
+.event_bottom{
+    background: url(../image/event2.jpeg) no-repeat center;
+    background-size:cover;
+    margin-top:10px;
+    height:105px;
+    border-radius:10px;
+    box-shadow:inset 3px 3px 5px #666;
+
+}
+
+#footer{
+    background-color:#3b414d;
+    color:#eee;
+    padding:20px;
+}
+
+#footer{
+    display:inline-block;
+    padding:8px 15px;
+}
+
+
+.foot_menu{
+    font-size:12px;
+}
+
+.foot_memu li{
+    float:left;
+    padding:0 20px;
+}
+
+.foot_menu li:nth-child(1){padding-left:0;}
+.foot_menu li:nth-child(2){
+    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
+}
+.foot_menu:nth-child(3){
+    border-right:1px solid #ccc;
+}
+.foot_text{
+    color:#bbb;
+    font-weight:800;
+}
+
+.foot_text p{
+    line-height: 30px;
+}
+
+
+
+/*하위 지정시 > 사용하면 바로 아래 하나만 지정하는 거
+띄어쓰기 하면 아래 해당되는 부분은 전부 지정되는 거
+
+float 태그 : html에서도 상위태그에 떠있는 형태로 표시
+ 단점 : 상위태그에 포함되지 않음 = 높이, 여백 등을 별도로 지정해야 함
+
+스타일 태그 사용할 때 주의할 점 : 하나 잡겠다고 쓴 태그가 다른 태그에 영향 끼침
+
+현재 위치한 폴더에서 상위 폴더로 이동하고 싶다면 >> ../
+설정한 배경이미지가 안 보인다면 높이 설정을 해보자.
+
+
+아예 이미지를 불러올 때, ()다음으로 백그라운드 포지션과 반복 여부를 표시할 수 있다.
+사용한 이미지가 설정한 화면보다 더 작다면 반복적으로 표시가 됨
+contain : 화면보다 더 큰 이미지를 일부 잘라서 사용해서라도 맞춤
+cover : 비율은 유지하고 이미지의 너비를 키움
+repeat : 바둑판식 배열 <<안 쓰려면 no-repeat 쓰면 됨
+
+사진의 완전한 절반에 해당하는 위치에 자리를 배치하고 싶다면 단순히 top:50%만 지정해선 안되고
+transform:translateY(-50%)로 지정해줘야 함.
+
+그림자 효과는 inset으로 안쪽에 그림자를 줄 수도 있음(물론 안 붙이면 바깥쪽)
+
+
+과제 : 주제는 푸른지구, 전체 너비는 1000px을 맞춰올 것*/
