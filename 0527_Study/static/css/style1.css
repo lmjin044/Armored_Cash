@@ -60,6 +60,12 @@ ul{list-style-type:none;}
     height:350px;
 }
 
+#box{
+    position:fixed;
+    top:50%;
+    left:10px;
+}
+
 #footer> .pic:nth-child(1){
     background:url(../image/pic1.jpeg) no-repeat center;
     background-size:contain;}
