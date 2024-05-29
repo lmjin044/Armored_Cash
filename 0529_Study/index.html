@@ -1,0 +1,98 @@
+<!--오늘의 주제 : display:flex position, inline-box 등등의 것들을 편히 할 수 있는 태그-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrap{
+            height:500px;
+            border:2px solid black;
+            display: flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-direction: column;
+        }
+
+        .item{/*width:30%;*/ height:30px;}
+        /*.aquamarine{align-self: end;}*/
+
+
+     /* .item{flex-basis:100px;width:100px; height:100px;}
+        .blue{order:3;}
+        .cyan{order:1;}
+        .darkblue{order:2;}*/
+
+
+
+
+        /*자식태그가 몇 개가 있든 한 줄로 표현
+          자식태그는 각자의 크기와 여백을 가짐 = 별도 조절 가능*/
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="item aquamarine" style="background : aquamarine;">a</div>
+        <div class="item blue" style="background : blue;">b</div>
+        <div class="item cyan" style="background : cyan;">c</div>
+        <div class="item darkblue" style="background : darkblue;">d</div>
+        <div class="item forestgreen" style="background : forestgreen">e</div>
+
+    </div>
+</body>
+</html>
+
+<!--flex: 기본적으로 한 줄(가운데)배치가 되도록 하는 목적을 가짐   
+          브라우저 화면에서 태그, 텍스트, 이미지의 배치를 위해 사용
+          적용된 태그가 부모태그 :  자식태그 또한 한 줄로 정렬됨.
+                                 단 부모와 자식태그 간 각각 적용할 수 있는 속성이 다름
+            >부모태그 : (flex)컨테이너 /  display:flex를 적용받음
+                    정렬은 주축(가로방향 ↔ 교차축 : 세로방향)으로 진행됨
+                -주축=justify-content : []
+                    ※[]에 들어갈 수 있는 요소 : 
+                      1)start(왼쪽) / center(가운데) / end(오른쪽)에 아이템을 배치한다.
+                      2)space 옵션 : 아이템 간 간격을 설정해주는 옵션
+                        space-around : 양쪽 끝을 살짝 띄우고 (겹치는 구간이 있을 수 있어 너비가 달라짐)
+                        space-between : 요소 간에 간격을 주되 양 끝만 공백 없이 배치
+                        space-evenly : 모든 간격을 동일하게 함
+                      3)stretch : 교차축과 달리 꽉 채워주진 않음, 걍 start와 같은 요소
+                      
+
+                -교차축=align-items
+                    ※교차축을 부여하려면 높이값을 줘야 함 (기본 위 start, 중간 center 끝 end)
+                    ※stretch : start처럼 보이지만 부모의 높이만큼 꽉 채워주는 역할
+
+            >자식태그 : (flex)아이템   /  display, position을 쓰면 자식태그로서의 물려받는 요소가 사라짐
+                1)align-self : 자식태그에 직접적으로 사용 / 해당 아이템만 단독으로 교차축 이동 가능
+                               start, end, stretch로 사용
+                               ▷stretch : 열 방향으로 꽉 채워줌
+                                 ※단 아래 flex-direction:column 옵션 사용해서 축 방향을 바꿀 경우 행 방향으로도 꽉 채워줌
+                  ↔justify-self:그리드에서는 사용 가능한 단독 횡적 이동 가능 주축 이동
+                
+                2)flex-grow : 부모의 전체 너비를 비율로 기준해서 얼만큼을 자식이 차지할 것인지를 결정
+                              자식태그의 너비를 지정하면 사용할 수 없음
+                              ex) 1 : 아이템이 총  5개가 있다면 5개 모두 1/5를 가짐
+                                ▷ 여기서 특정 아이템에 4를 지정할 경우 그것만 4/5를 가지게 됨
+                3)flex-basis: width값을 주어 너비에 한계가 있으면 그 안의 컨텐츠 양에 따라 전부 표현 할 수 없는데
+                              해당 태그를 사용하면 설정한 기본 너비부터 시작해 컨텐츠의 양을 전부 표현할 수 있도록 너비가 늘어남
+                4)flex-direction : 아이템의 정렬 순서를 변경
+                                ▷row : 기본값 (주축)
+                                ▷row-reverse : 기본값의 역순배치(주축)
+                                ▷column : 교차축으로 순차 변경
+                                ▷column-reverse : 교차축 역순 변경
+                5)order : 아이템 간 순서를 변경할 수 있음 (단 order을 가진 아이템 끼리)
+                            ▷먼저 order가 없는 아이템이 맨 앞으로
+                            ▷그 다음 order 값이 작을 수록 앞에 배치 됨
+                6)flex-wrap : 여러 줄 배치를 할 때 사용
+                              단 특정 태그에 flex-grow를 단 1이라도 주면 그 태그로 빈 공간을 꽉 채움
+                               ▷nowrap : 기본값 / 한 줄 배치
+                               ▷wrap : 여러 줄 배치
+                               ▷wrap-reverse : 여러 줄 배치(역방향 / 첫번째 줄의 아이템을 맨 끝으로)
+                              wrap-reverse를 사용하면 역순으로 채움
+                7)gap : 문자 그대로 각 요소 간의 여백을 n 픽셀만큼 떨어트릴 수 있음
+                        column-gap: 아이템 간 열 간격을 지정값 만큼 떨어트림
+                        row-gap : 아이템 간 행 간격을 지정값 만큼 떨어트림
+
+    더 자세하게 배치하고 싶다 : grid를 씀-->
