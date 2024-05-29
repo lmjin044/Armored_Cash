@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./static/css/papago.css" type="text/css">
+    <!--맨 뒤의 type은 안 넣어도 되지만 그렇다고 넣지 않을 이유는 없다.-->
+</head>
+<body>
+    <div id="wrap">
+
+        <div id="header">
+        
+            <div id="header_left">
+                <div class="logo">
+                    <img src="./static/image/Naver_Papago_logo.png" alt="파파고로고">
+                    <!--이미지파일 그냥 여기다가 집어 넣는게 편할 수 있음-->
+                </div>
+
+                <div class="menu">
+                    <span class="menu_text">웹사이트 번역</span>
+                    <span class="menu_text">문서번역</span>
+                    <span class="menu_text">사전</span>
+                </div>
+
+            </div>
+
+            <div id="header_right">
+                <span>로그인</span>
+            </div>
+
+        </div>
+
+        <div id="main">
+            <div id="main_box">
+                
+                <div class="translation trnaslation_left">
+               
+                    <div class="translation_top">
+                    <!--원래 div 태그는 글씨를 쓰는 영역 태그가 아님-->
+                        <span>언어 감지</span>
+                        <!--그래서 글씨를 쓸 영역을 만드는게 좋다-->
+                    </div>   
+
+                    <div class="translation_middle">
+                        <div class="guide">번역할 내용을 입력하세요</div>
+                        <div class="conut">0/3000</div>
+                        <!--여기는 각기 다른 줄을 쓰기 때문에 span으로 영역을 잡을 이유가 없다-->
+                    </div>
+
+                    <div class="translation_bottom">
+                        <div class="function">
+                            <span class="listening"></span>
+                            <span class="copy"></span>
+                        </div>
+                
+                        <div class="translation_bt">
+                            <button>번역하기</button>
+                            <!--실제 버튼을 만들 수 있는 태그임-->
+                        </div>
+
+                    </div>
+               
+                </div>
+
+                <div class="translation translation_right">
+                    
+                    <div class="translation_top">
+                        <span>영어</span>
+                    </div>
+
+                    <div class="translation_middle"></div>
+                    
+                    <div class="translation_bottom">
+                        <div class="function">
+                            <span class="tool"></span>
+                            <span class="tool"></span>
+                            <span class="tool"></span>
+                            <span class="tool"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

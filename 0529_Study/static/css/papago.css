@@ -1,0 +1,71 @@
+/*tip1: 가장 바깥쪽에 있는 것부터 설정해주는게 편하다*/
+
+*{margin:0; padding:0; box-sizing: border-box;}
+
+#wrap{width:100%; min-width:800px; position:relative;}
+/*min-width 값을 주면 아무리 브라우저를 좁게 해도 그보다 작아지지 않음
+가장 상위인 이 태그에 최소 너비값을 지정했기에 별도 지정하지 않으면 그 너비를 따름*/
+
+
+#header{
+    width:100%; 
+    padding:20px; 
+    position:relative;
+    border-bottom:1px solid #aaa;
+}
+    #header_left{position:relative;width:100%;}        
+         /*로고와 메뉴 등을 한 줄로 표시할 수 있는 방법 
+          display : inline-block
+          position : relative - 하위 요소에 포지션값을 설정해줘야 함
+                    로고는 relative, menu에 absolute를.
+          float : left - 부모의 높이를 별도로 주어야 함*/
+    
+
+        #header_left .logo{width:130px;}
+        #header_left .logo>img{
+            /*width:130px;*/
+            height:35px;
+              /*바로 밑에 있는 요소를 선택하고 싶다면 꺾쇠(>)사용
+              이미지가 들어있는 '로고'의 영역도 지정해 더 넘어가지 않도록 함
+              로고와 메뉴가 공통된 중심축을 형성하는 방법 :
+               1)로고의 높이를 설정하기
+               2)메뉴의 line-height를 설정하기*/
+        }   
+
+        #header_left .menu{
+            position:absolute; 
+            top:0; 
+            left:150px;
+            line-height:35px;
+        }
+            #header_left .menu .menu_text:nth-child(2){
+                margin:0 10px;
+                position:relative;
+            }
+            #header_left .menu .menu_text:nth-child(2)::after{
+            /*::after 는 가상 글자임 (뜻 : 두번째 글자 뒤에 붙여라)
+            실제로 구현이 되게 하려면 content를 사용해야 함*/
+                content:"|";
+                position:absolute;
+                right:-10px;
+                bottom:-5px;
+                color:gray;
+            }
+
+
+    #header_right{
+        position:absolute;
+        right:20px; 
+        top:20px;
+         /*absolute로 포지션을 잡으면 부모태그의 padding 값을 무시해버림
+         부모가 가진 패딩 값을 그대로 다시 입력할 것
+         따라서 이 경우에는 top과 right 값을 줘야 함*/
+    }
+        #header_right>span{
+            border:1px solid #aaa;
+            padding:3px 7px;
+            font-size:12px;
+            /*기본 폰트의 크기는 16px임*/
+        }
+
+#main{width:1400px; margin:0 auto; padding:50px 0; position:relative;}
