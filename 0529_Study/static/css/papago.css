@@ -68,4 +68,94 @@
             /*기본 폰트의 크기는 16px임*/
         }
 
-#main{width:1400px; margin:0 auto; padding:50px 0; position:relative;}
+#main{
+    width:1400px; 
+    margin:0 auto; 
+    padding:50px 0; 
+    position:relative; 
+    border-bottom:1px solid #ccc;
+}
+
+        #main_box{
+            width:100%;
+            position:relative;
+        }
+
+        #main_box .translation{
+            /*이렇게 할 경우 'translation이 붙은 태그에 일괄 적용이 된다*/
+            width:685px;
+            position:relative;
+            top:0;
+            border:1px solid #ccc;
+            border-radius:10px;
+            overflow:hidden;
+        }
+
+            #main_box .translation_right{
+                position:absolute;
+                right:0;
+            }
+
+        #main_box .translation_top{
+            padding:20px 30px;
+            font-weight:700;
+        }
+
+        #main_box .translation_middle{
+            padding:40px 17px;
+            height:226px;
+            border-top:1px solid #ccc;
+            border-bottom:1px solid #ccc;
+            position:relative;
+        }
+
+            #main_box .translation_middle .guide{
+                font-size:29px;
+                font-weight:600;
+                color:#777;
+            }
+
+            #main_box .translation_middle .count{
+                font-size:20px;
+                position:absolute;
+                bottom:40px;
+                right:17px;
+                /*왜 40과 17을 줌? : 포지션을 앱솔루트로 줘서 상위 middle에서 패딩을 그만큼 주었으므로
+                 그리고 middle에 relative를 주지 않으면 translate_top을 기준으로 하기 때문에 더 아래로 내려감!!*/
+            }
+
+        #main_box .translation_bottom{
+            width:100%;
+            position:relative;
+            display:flex;
+        }
+
+            #main_box .translation_bottom .function{
+                display:flex;
+                width:75%
+            }
+
+                #main_box .translation_bottom .function span{
+
+                    height:70px;
+                    width:70px;
+                    border-right:1px solid #ccc;
+                }
+
+            #main_box .translation_bottom .translation_bt{ 
+                width:25%;
+                /*상위 태그에 display:flex를 하면 유격을 없애주므로 딱 떨어지게 만들어준다*/
+            }
+                #main_box .translation_bottom .translation_bt button{
+                    width:100%;
+                    height:70px;
+                    border:0;
+                    font-size:23px;
+                    background:#21dc6d;
+                    color:white;
+                }
+
+             /*inline-block의 문제점 : 강제적으로 블록을 형성함 
+             div 태그도 블록을 형성하는 것이라서 이중으로 블록을 잡아 유격이 생김
+             
+              >> 부모태그에 display :flex 이용해서 높이 균형을 맞춰주면 된다 */   
