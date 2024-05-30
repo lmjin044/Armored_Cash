@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #cont1{
+            width:100%;
+            max-width: 1200px;
+            margin:0 auto;
+            display:flex;
+            flex-wrap:wrap;
+            justify-content: center;
+            /*gap:10px;*/
+        }
+
+        #cont1>img{
+            width:25%;
+            padding-right:10px;
+            box-sizing: border-box;
+            /*width: clac( (1200px - 30px) / 4);*/
+            /*계산식을 적을 때는 연산자 당 띄어쓰기를 적용해야 함*/
+
+            /*반응형으로 작성하려면 주석으로 달아놓은 방식으로는 적용이 안 됨*/
+        }
+
+        #card_wrap{
+            display:flex;
+            flex-wrap:wrap;
+            width:400px;
+            box-sizing: border-box;
+            row-gap:9px;
+        }
+
+        .card{
+            width:33.33%;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+
+            /*이미지를 가운데로 넣을 때 inline 상태면 text-align이 안된다
+             ▷block을 사용해야함
+             ▷만약 display:flex를 사용하면 텍스트가 이미지 옆에 붙어 정렬된다
+             ▷이미지 아래로 배치(=2줄 배치 하려면?) : 
+                flex 상태를 유지한 상태에서 flex-direction:column 추가
+             ▷여기에 가운데 정렬을 추가하고 싶어(너비를 안 맞췄을 경우) :
+                1)align-items:center 사용해서 이미지 정렬
+                2)텍스트가 만약 너비를 꽉 채워 차지하면 위 구문으로 정렬이 안됨
+                  해결하려면 아예 텍스트 박스를 따로 잡아서 자간이라던가 조절해야함
+            */            
+        }
+
+        .card:nth-child(1), .card:nth-child(4){
+            padding-right:6px;
+        }
+        .card:nth-child(2), .card:nth-child(5){
+            padding-left:3px;
+            padding-right:3px;
+        }
+        .card:nth-child(3), .card:nth-child(6){
+            padding-left:6px;
+        }
+
+        .card .card_img{
+            width:100%;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .card .card_img img{
+            width:100%;
+            display:block;
+        }
+
+        /*현재 총 너비를 400으로 잡아서 3등분 했는데 paddiing을 넣으면 위험한 이유 :
+        padding을 넣으면 실질적으로는 총 400px에 맞게 조정된 사진들이 그만큼 밀림
+            ▷그렇다고 가운데에 padding을 좌우로 주게 되면 가운데 사진만 작아짐
+            ▷gap을 이용해서 줄 경우 별도로 이미지마다 너비 조정 해야 함
+              = 계산해라
+        */
+
+
+        .card_text{
+            margin:0;
+            padding-top:5px;
+            -webkit-line-clamp:2;
+            overflow:hidden;
+            height:42px;
+
+            text-overflow: ellipsis;   /*요 옵션은 나중에 복사했다가 붙여 넣기로 해서 사용도 가능*/
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+        }
+        /*
+        이미지와 텍스트 간 간격이 있는 이유=p태그
+        -webkit-line-clamp : 강제적으로 지정한 숫자만큼 화면에 텍스트 줄 수를 표시
+        overflow: 지정된 크기보다 더 큰 영역or텍스트, 이미지를 화면에 어떻게 표시할 지 설정
+         ▷ hidden - 콘텐츠를 영역에 맞춰 정리함(스크롤 X)
+         ▷scroll - 콘텐츠를 영역에 맞춰 정리함(스크롤 O, 항상 노출)
+         ▷auto - 콘텐츠의 분량에 따라 영역 이상일 경우 스크롤을 표시
+        text-overflow: ellipsis = 지정 줄 수 이상의 글자를 강제로 ... 으로 표기
+         ▷단  display: -webkit-box; 와 -webkit-box-orient: vertical의 설정이 필요함
+             */
+
+
+    </style>
+</head>
+<body>
+    <h2> 여러 줄 배치하기 </h2>
+    <div id="cont1">
+        <img src="https://loremflickr.com/300//400?random=1">
+        <img src="https://loremflickr.com/300//400?random=2">
+        <img src="https://loremflickr.com/300//400?random=3">
+        <img src="https://loremflickr.com/300//400?random=4">
+        <img src="https://loremflickr.com/300//400?random=5">
+        <img src="https://loremflickr.com/300//400?random=6">
+        <img src="https://loremflickr.com/300//400?random=7">
+        <img src="https://loremflickr.com/300//400?random=8">
+        <img src="https://loremflickr.com/300//400?random=9">
+        <img src="https://loremflickr.com/300//400?random=10">      
+    </div>
+
+    <div id="card_wrap">
+
+        <div class="card">
+            <div class="card_img">
+                <img src="https://loremflickr.com/100/130?random=1" alt="1">
+            </div>
+            <p class="card_text">html 구조의시작 헤더</p>
+        </div>
+
+        <div class="card">
+            <div class="card_img">
+                <img src="https://loremflickr.com/100/130?random=2" alt="2">
+            </div>   
+            <p class="card_text">본문 푸터까지 마크업, H1, H2</p>
+        </div>
+
+        <div class="card">
+            <div class="card_img">
+                <img src="https://loremflickr.com/100/130?random=3" alt="3">
+            </div>   
+            <p class="card_text">제목을 표시하고 p태그로 문장</p>
+        </div>
+
+        <div class="card">
+            <div class="card_img">
+                <img src="https://loremflickr.com/100/130?random=4" alt="4">
+            </div>
+            <p class="card_text">링크는 A 이미지는 p태그로 문장</p>
+        </div>
+
+        <div class="card">
+            <div class="card_img">
+                <img src="https://loremflickr.com/100/130?random=5" alt="5">
+            </div>
+            <p class="card_text">CSS 스타일 색상 폰트 레이아웃</p>
+        </div>
+
+        <div class="card">
+            <div class="card_img">
+                <img src="https://loremflickr.com/100/130?random=6" alt="6">
+            </div>
+            <p class="card_text">클래스와 아이디로 선택하고 헥사코드</p>
+        </div>
+
+    </div>
+</body>
+</html>
+
+<!--약어 정리하기
+45행 : div.card>div.card_img>img^p
+64행 : (div.card>div.card_img>img^p.card_text)*4-->

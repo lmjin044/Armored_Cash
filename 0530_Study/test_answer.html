@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    #box{
+        display:flex;
+        width:1000px;
+        padding:30px 20px;
+        box-sizing: border-box ;
+        flex-wrap:wrap;
+        background-color: #eee;
+        row-gap: 40px;
+    }
+
+    .list{
+        width:50%;              
+        /*위의 설정을 한 다음 해당 태그를 설정하면 정확히 반반으로 나뉜다*/
+        display:flex;
+        align-items: center;
+    }
+
+    .mark{
+        padding:10px;
+    }
+    .title{
+        font-weight:800;
+    }
+
+    .detail{
+        color:#999;
+    }
+    
+    
+</style>
+<body>
+    <div id="box">
+        
+        <div class="list">
+            <div class="mark">●</div>
+            <div class="text">
+                <div class="title">똑똑한 인사정보 관리</div>
+                <div class="detail">한 곳에서 관리하는 인사 및 개인정보</div>
+            </div>
+        </div>
+        <div class="list">
+            <div class="mark">●</div>
+            <div class="text">
+                <div class="title">구성원 근무·휴가 관리</div>
+                <div class="detail">우리 회사 문화에 알맞는 근무와 휴가 관리</div>
+            </div>
+        </div>
+        <div class="list">
+            <div class="mark">●</div>
+            <div class="text">
+                <div class="title">워크플로우(전자결제)</div>
+                <div class="detail">회사의 모든 의사결정과 커뮤니케이션</div>
+            </div>
+        </div>
+        <div class="list">
+            <div class="mark">●</div>
+            <div class="text">
+                <div class="title">HR인사이트(Analytics)</div>
+                <div class="detail">심층 분석된 회사 HR 데이터 확인</div>
+            </div>
+        </div>
+        <div class="list">
+            <div class="mark">●</div>
+            <div class="text">
+                <div class="title">회사 문서 관리</div>
+                <div class="detail">회사의 다양한 문서 및 증명서 보관</div>
+            </div>
+        </div>
+        <div class="list">
+            <div class="mark">●</div>
+            <div class="text">
+                <div class="title">할 일 요청 및 공지사항 작성</div>
+                <div class="detail">한눈에 들어오는 할 일과 회사 소식</div>
+            </div>
+        </div>
+        <div class="list">
+            <div class="mark">●</div>
+            <div class="text">
+                <div class="title">외부 서비스 연동</div>
+                <div class="detail">구글 혹은 슬랙과 제품내 주요 기능 연동을 통한 편의성 제공</div>
+            </div>
+        </div>
+        <div class="list">
+            <div class="mark">●</div>
+            <div class="text">
+                <div class="title">강력한 보안관리</div>
+                <div class="detail">국제표준화기구에서 제정한 정보보호 관리체계 인증</div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
+
+<!--
+1)11행부터 66행까지 : (div.list>div.mark+div.text>div.title+div.detail)*8
+                    '+'는 형제태그를 생성할 때 사용한다
+
+-->

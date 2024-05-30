@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #wrap{
+        display:flex;
+        width:1000px;
+        justify-content: space-between;
+        box-sizing: border-box;
+        gap:50px;
+    }
+
+    #left_text{
+        display:flex;
+        flex-wrap:wrap;
+        
+    }
+    .main_text{
+        color:black;
+        font-weight: 800;
+        font-size:20px;
+        margin-bottom:0px;
+        
+    }
+
+    .sub_text{
+        color:grey;
+        margin-top: 5px;
+        margin-bottom:20px;
+        font-size:13px;
+    }
+        
+    .icon{
+        width:30px;
+        display:flex;
+
+    }
+
+
+    #right_text{
+        justify-content:end;
+    }
+</style>
+<body>
+    <div id="wrap">
+        <div id="left">
+            <div class="left_text">
+                <span class="icon">●</span>
+                <span class="text_box">
+                    <p class="main_text">똑똑한 인사정보 관리</p>
+                    <p class="sub_text">한 곳에서 관리하는 인사 및 개인정보</p>
+                </span>
+            </div>
+
+            <div class="left_text">
+               <div class="icon">●</div>
+               <div class="text_box">
+                    <p class="main_text">구성원 근무·휴가 관리</p>
+                    <p class="sub_text">우리 회사 문화에 알맞는 근무와 휴가 관리</p>
+                </div>
+            </div>
+
+            <div class="left_text">
+                <div class="icon">●</div>
+                <div class="text_box">
+                    <p class="main_text">워크플로우(전자결제)</p>
+                    <p class="sub_text">회사의 모든 의사결정과 커뮤니케이션</p>
+                </div>
+            </div>
+
+            <div class="left_text">
+                <div class="icon">●</div>
+                <div class="text_box">
+                    <p class="main_text">HR인사이트(Analytics)</p>
+                    <p class="sub_text">심층 분석된 회사 HR 데이터 확인</p>
+                </div>
+            </div>
+
+
+        </div>
+        
+        <div id="right">
+            <div class="right_text">
+                <div class="icon">●</div>
+                <div class="text_box">
+                    <p class="main_text">회사 문서 관리</p>
+                    <p class="sub_text">회사의 다양한 문서 및 증명서 보관</p>
+                </div>
+            </div>
+
+            <div class="right_text">
+                <div class="icon">●</div>
+                <div class="text_box">
+                    <p class="main_text">할 일 요청 및 공지사항 작성</p>
+                    <p class="sub_text">한눈에 들어오는 할 일과 회사 소식</p>
+                </div>
+            </div>
+
+            <div class="right_text">
+                <div class="icon">●</div>
+                <div class="text_box">
+                    <p class="main_text">외부 서비스 연동</p>
+                    <p class="sub_text">구글 혹은 슬랙과 제품내 주요 기능 연동을 통한 편의성 제공</p>
+                </div>
+            </div>
+
+            <div class="right_text">
+                <div class="icon">●</div>
+                <div class="text_box">
+                    <p class="main_text">강력한 보안관리</p>
+                    <p class="sub_text">국제표준화기구에서 제정한 정보보호 관리체계 인증</p>
+                 </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
