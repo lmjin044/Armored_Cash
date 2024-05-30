@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>사진 갤러리</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+        padding: 20px;
+    }
+    .gallery-item {
+        margin: 10px;
+        flex: 1 0 calc(33.333% - 20px); /* 가로 3줄에 맞게 조정 */
+        max-width: calc(33.333% - 20px); /* 가로 3줄에 맞게 조정 */
+        box-sizing: border-box;
+        flex-direction: row;
+    }
+    .gallery-item img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+</style>
+</head>
+<body>
+<div class="gallery">
+    <div class="gallery-item"><img src="https://loremflickr.com/300/400?random=1" alt="Image 1"></div>
+    <div class="gallery-item"><img src="https://loremflickr.com/300/400?random=2" alt="Image 2"></div>
+    <div class="gallery-item"><img src="https://loremflickr.com/300/400?random=3" alt="Image 3"></div>
+    <div class="gallery-item"><img src="https://loremflickr.com/300/400?random=4" alt="Image 4"></div>
+    <div class="gallery-item"><img src="https://loremflickr.com/300/400?random=5" alt="Image 5"></div>
+    <div class="gallery-item"><img src="https://loremflickr.com/300/400?random=6" alt="Image 6"></div>
+    <div class="gallery-item"><img src="https://loremflickr.com/300/400?random=7" alt="Image 7"></div>
+    <div class="gallery-item"><img src="https://loremflickr.com/300/400?random=8" alt="Image 8"></div>
+</div>
+</body>
+</html>
