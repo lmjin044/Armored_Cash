@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        num=100;
+        document.write("<br>"); //만약 한 줄 아래로 쓰고 싶으면 괄호 안에 이렇게 쓰면 된다. div도 가능
+        document.write(num * 5 ); //변수 이름에 지정된 데이터에 x5가 들어감
+        document.write("저는 자바스크립트 입니다.") //문자열로 표현하고 싶을 때는 "" 표기를 써야 함 = 계산 안 됨
+
+
+        //사격형의 너비는 45이고, 높이는 15잉ㄹ 경우 넓이는 얼마인가?
+
+        width=45;
+        height=15;
+
+
+        document.write("<br>");
+        document.write("사각형의 너비는");
+        document.write(width); //물론 이렇게 다음 줄에 작성해도 되지만....
+        document.write(" 높이는 " + height); //문자열 다음에 '+ 변수이름'으로 동시에 작성 가능 
+         /*+는 문자열 합치기 라는 뜻
+           이렇게 하면 굳이 데이터를 일일이 수정하지 않고 변경이 가능*/
+
+        document.write("<br>");
+        document.write(" 넓이는 " + width*height);
+    
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+
+        //국어 : 89 / 영어 : 94 / 수학 :78
+        //총점 : 261점
+        kor=89;
+        eng=94;
+        mat=78;
+        total=(kor+eng+mat);
+
+        document.write("국어 : " + kor + ", " + "영어 : " + eng +", " + "수학 : " + mat);
+        document.write("<br>");
+        //document.write("총점 : " + (kor+eng+mat)+"점");
+            /*혹은 
+            1) document.write("총점 : " + (kor+eng+mat)+"점");
+            2) document.write("총점 : " + total+"점"); 으로도 가능 단 먼저 total 이라는 변수가 어떤 것인지를 지정할 것*/
+        document.write("총점 : " + total+"점");   
+
+
+
+        document.write("<hr>"); //밑줄 치는 구문임
+        
+        //커피 총 주문 금액과 수박주스 총 주문 금액 출력할 것
+        //음료 총 주문 금액 출력할 것
+        커피주문=3;
+        수박주스주문=4;
+        아메리카노=1500;
+        수박주스=2000;
+        total=((커피주문*아메리카노)+(수박주스주문*수박주스));
+        
+        document.write("커피 총 주문 : "+커피주문*아메리카노 +"원, " + "수박주스 총 주문 : " + 수박주스주문*수박주스 +"원");
+        document.write("<br>")
+        //document.write("음료 총 주문 금액은 "+((커피주문*아메리카노)+(수박주스주문*수박주스))+"원");
+        document.write("음료 총 주문 금액은 "+ total+"원");
+
+        //변수 교환?
+        redCub=10;
+        blueCub=20;
+        whiteCup=0; //
+
+        //라고 가정했을 때, redCup의 변수를 20으로, blueCup은 10으로 바꾸고 싶다면?
+
+        whiteCup = redCup; //1)새로운 변수를 만들어 복사 및 저장한다.
+        redCup=blueCup; //2)그렇게 되면 여기까지의 순서상 whitecup으로 인해 내용이 없어진 redcup이 20, bluecup은 0이 된다
+        blueCup=whiteCup; //3)그리고 whitecup이 가지고 있던 redcup의 10이 bluecup으로 이동이 된다.
+
+        /*
+
+        함수 이름 정하는 국룰 .list
+
+            카멜케이스 : 첫 단어는 소문자, 두번째 단어부터 대문자로 시작 >> blueCup, myName
+            스네이크케이스 : 모든 단어를 소문자, 단어 간 _ (언더바)삽입 >> blue_cup my_name
+            파스칼케이스 : 모든 단어를 띄어쓰기 없는 대문자로 시작 >> BlueCup MyName
+            케밥 케이스 : 모든 단어를 소문자, 단어 간 -(바) 삽입 >> blue-cup my-name
+            헝가리언 표기법 : 이름에 목적 혹은 타입을 접두사로 기재 >> blueInt, blue_int, BlueInt, blue-int 등
+            */
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

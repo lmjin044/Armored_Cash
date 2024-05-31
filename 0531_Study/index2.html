@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+//데이터 입력방법 1
+/*  ※prompt 통해서 데이터 입력을 할 경우, 해당 데이터는 문자열로 취급된다.
+    ※근데 *(곱하기), /(나누기), -(빼기)의 경우에는 정상적으로 표현이 된다. 이건 전부 숫자로 바로 인식해서.
+    ※더하기만 이럼 : 문자열 합치기 연산에도 사용할 수 있어서.
+        ▷방법은? 숫자로 강제 변환하기(단, 숫자로 변환이 가능한 문자열만 가능 / "50"의 경우 따옴표 제외하면 전부 숫자니까 가능) 
+        ▷1)pareInt(문자열) = 정수로 변환 / "50aaa" >> 50
+          2)parseFloat(문자열) = 실수로 변환
+          3)Number(문자열)=숫자로 변환 / 단 문자열에 단 하나의 문자도 있으면 안 됨
+    
+    */
+        kor = parseInt(prompt("국어점수")); 
+        mat = parseInt(prompt("수학점수"));
+        eng = parseInt(prompt("영어점수"));
+        total = kor + mat + eng; 
+            // 만약에 이 함수를 맨 위로 올려버리면 순서가 맞지 않아서 계산이 안 된다.
+            //근데 위 계산으로 하면 총 덧셈이 아니라 숫자가 텍스트로 인식되어 그대로 나란히 출력되어버림
+
+            /*단순히 prompt만 입력하면 브라우저에 뭔가를 입력할 수 있는 창임. 입력한 값을 저장할 변수가 필요함
+            1) 그래서 변수 = prompt()로 prompt에 입력한 데이터를 저장할 수 있도록 함
+            3) input의 수가 늘어날 수록 저장할 수 있는 데이터가 늘어남
+            */
+            
+        document.write("<br> 국어 : " + kor +" 수학 : " + mat + " 영어 : " + eng);
+            /*2) 그리고 위와 같이 해서 입력한 데이터가 브라우저에 출력되도록 할 수 있다.
+                 단 입력하지 않고 '취소'가 되어버리면 null(값이 없다!)만 출력 됨.
+              4) 입력이 완료되면 prompt의 수 만큼 브라우저에 기록이 되어 출력된다.*/
+        document.write("<br> 총점 : " + total +"점");
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
