@@ -1,0 +1,30 @@
+*{margin:0; padding:0; box-sizing: border-box;}
+
+#gallery{
+    margin:30px;
+    border:1px solid #aaa;
+    padding:20px;
+
+    display:flex; /*1)이걸로 일단 가로로 배치가 됨*/
+    flex-direction:column; /*2)그리고 이걸로 세로 종대 1열 배치*/
+    height:1000px; /*3)높이의 제약을 주었지만 안 되는 이유는?*/
+    flex-wrap:wrap;/*4)이게 있어야 여러 줄로 표현할 수 있기 시작*/
+    gap:15px; /*8)이미지 간 간격을 이걸로 발생 시킴*/
+    align-items: start;/*9)잉여여백으로 인해 화면 축소 혹은 확대 시 발생하는 유격 없앰*/
+    width:1645px;/*10) 7)에서 잡은 너비x4(=1600)+이미지 간 갭x3(=45)의 합*/
+    box-sizing:unset; /*패딩 값을 주고도 박스 이미지가 안 넘어가려면 이렇게 설정해야 함*/
+
+    
+}
+    #gallery .image img{   
+        display:block;/*5)이미지 간 유격을 없애줌*/
+    }
+
+    #gallery .image{
+        overflow:hidden; /*6)위에서 지정한 범위에서 오버되는 것은 자름*/
+        width:400px; /*7)강제로 너비를 조정해주는건 여기서*/
+        border-radius:5px; /*11) 사진 모서리 부분을 둥글게 둥글게*/
+    }
+
+        .small{ height:200px; }
+        .medium{ height:300px }
