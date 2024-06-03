@@ -22,6 +22,41 @@
 
  */
 
+document.write("문제 1.");
+document.write("<br>");
+    soju=2;
+    drink=parseFloat(prompt("마신 소주 잔은?"));
+    minite=soju*drink;
+    hour=parseInt(minite/60); 
+    day=parseInt(hour/24);
+
+document.write(("몇 잔을 마셨습니까? " +drink)+ "잔을 마셨습니다.");
+document.write("<br>");
+document.write("<br>");
+document.write(("이 사람의 수명은 " +minite)+ "분 감소했습니다.");
+document.write("<br>");
+document.write(("이 사람의 수명은 "+ hour)+ "시간 감소했습니다.");
+document.write("<br>");
+document.write(("이 사람의 수명은 " + day)+ "일 감소했습니다.");
+document.write("<br>");
+document.write("<br>");
+
+document.write("문제 2.");
+    dice1=Math.floor(Math.random()*6)+1;
+    dice2=Math.floor(Math.random()*6)+1;
+    result=(dice1 == dice2)? "당첨" :"꽝";
+document.write("<br>");
+document.write("<br>");
+document.write("주사위 1의 값은? : " +dice1);
+document.write("<br>");
+document.write("주사위 2의 값은? : " +dice2);
+document.write("<br>");
+document.write(("당첨입니까? : " + result)+"입니다.");
+
+
+
+
+
 </script>
 
 </head>
