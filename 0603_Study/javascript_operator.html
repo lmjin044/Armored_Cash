@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+
+/*
+    연산자 종류 >>Java, C언어에서도 전부 동일하니까 반드시 외워둘 것
+
+    //console.log(출력내용); >> 개발자도구 내 콘솔메뉴에서 표기할 수 있도록 함
+     1)산술 : 사칙연산(+, /, *, /)과 %
+
+        num1=17;
+        num2=4;
+
+        console.log(num1+num2);
+        console.log(num1-num2);
+        console.log(num1*num2);
+        console.log(num1/num2);
+        console.log(num1%num2);  // 나눗셈에서 나머지를 구하는 식임. 남은 거리값을 구할 때도 사용.
+
+     2)대입 : = (오른쪽의 값을 왼쪽에 저장)
+
+     3)증강 : ++, -- (각기 1증가, 1감소. 증감은 무조건 1단위로만 가능)
+        add1 = 10;
+        add1++; >> add1이라는 변수에 저장해 놓은 숫자에서 +1 해라.
+        console.log(add1);
+
+        down1 = 10;
+        down1--; >> down1이라는 변수에 저장해 놓은 숫자에서 -1 해라.
+        console.log(down1);
+
+        add2 = 10;
+        console.log(add2++); >> 그러나 출력되는건 10(대입연산자보다 우선순위가 낮음)
+        console.log(add2); >> 오히려 11이 출력 됨(대입연산자로 인해 출력 됨)
+        
+     4)비교 : >, <, >=, =<, ==, ===, != (마지막은 같지 않다를 의미)
+        대소 비교 연산자 : <, <=, >, >=
+        
+            avarage=parseInt(prompt("내 연봉은? "));
+            document.write(avarage >= 3100);
+            document.write("true면 평균 이상, false면 평균 미만");
+
+            americano = 2000;
+            people=5;
+            money=Number(prompt("통장의 잔액은 얼마인가?"));
+
+            document.write("구매 가능? :" +(americano*people <= money));  // 혹은 money>=americano*people로 해도 됨
+
+        등가 비교 연산자 : ==, ===, !=
+            ☆ == / 동등연산자 : 데이터의 종류(숫자, 문자)와 관계없이 같고 다른 여부만 따지겠다
+            ★ ==== / 일치연산자 : 데이터의 종류도 따져서 같고 다른 여부를 따지겠다.
+        
+        ※회원가입 당시 입력한 생년월일과 입력한 생년월일을 비교할 때와 같은 경우 사용함
+        ※얘는 무조건 같으면 true고 같지 않으면 false임
+        ※그리고 = 하나만 써놓고 안 된다고 하면 안 된다.
+        ※요소 간에 공백이 있으면 다른 것으로 취급해버림
+        ※변수.trim() : 문자열 양쪽 끝의 공백을 제거
+            ※toLowerCase()
+            ※toUpperCase()
+             >> 각각 모든 영문자를 소, 대문자로 변경시켜줌
+                 console.log("영어대소문자가 다르다면 " + word1.toLowerCase() === word2.toLowerCase());
+
+
+     5)논리 : &&(and), ::(or, 백스페이스 옆에 붙은 원 표시+스페이스), !(not)
+
+
+     6)조건(=삼항, 비교식) : ?(참), :(거짓)
+        주어진 조건식(비교연산자로 만들어진 식의 결과가 참 or 거짓)을 비교
+        그 결과에 따라 다음에 실행할 코드를 설정할 수 있는 것
+        ※변수를 저장하는 방식(a=300)의 조건구문을 사용하면 안 됨 : 빨간줄 안 들어온다 방심하단 오류 못 찾고 훅 간다.
+        ※간단한 조건을 사용할 때는 사용하지만 복잡한 건 안 됨
+     
+        age=40;
+        (age >= 30 ) ? document.write("아이고 어르신.") : document.write("떡국 더 먹고 와라.");
+        document.write("<br>")
+
+        score=88;
+        결과 = (score>=60) ?"합격" :"불합격";
+        document.write("<br><br>" + 결과);
+
+        tall = Number(prompt("당신의 키는? "));
+        
+        result = (tall >= 135) ?"어서오세요" :"우유 좀 더 먹고 와라";
+        document.write("<br><br>"+ "탑승여부 : " + result);
+
+        userPoint= 435;
+        step=Number(prompt("오늘 총 몇 걸음 걸었는가? "));
+        addPoint=(step > 6000) ?10 :0;   //6000보 초과해서 걸었으면 10을 그렇지 못하면 0을 출력할 것
+        userPoint = userPoint + addPoint; //입력한 값에 따라서 435에 10혹은 0을 더해라
+        document.write("현재 포인트 : " +userPoint);
+
+        num1=Number(prompt("숫자 1을 입력하시오"));
+        num2=Number(prompt("숫자 2를 입력하시오"));
+
+        result=(Number(num1+num2)===21) ?"블랙잭입니다." :"아니오, " + Number(num1+num2) +"입니다";
+        document.write("블랙잭입니까? : " + result);
+
+
+     ※주의 사항(=아무렇게나 마구잡이로 사용하면 안 된다) : 
+      ▷연산자 우선 순위를 고려하여 식을 만들 것(사칙연도 곱셈, 나눗셈이 덧셈과 뺄셈보다 앞서는 것처럼)
+        우선순위 : (), [], ->, .(.은 접근 연산자) 순서대로 생각하자  
+
+      ▷연산자 우선 순위
+       1)괄호 : ()
+       2)증강,논리연산자 not : !
+       3)산술 연산자 곱셈 등 : *, /, %
+       4)산술 연산자 덧셈 등 : +, -
+       5)비교 연산자 대소 등 : <, <=, >, >=
+       6)비교 연산자 같음 등 : ==, ===, !=, !==
+       7)논리 연산자 and : &&
+       8)논리 연산자 or : ::
+       9)대입 연산자 : =, +=, -=, *=, /=, %=
+
+
+     */
+
+    //num1=Math.floor(Math.random()*45)+1;
+         //*10까지만 하면 0~9까지의 범위를 갖는 임의의 정수를 구하는 것
+         //여기에 +1을 구하면 1~10의 범위로 변경이 가능함
+         //랜덤한 범위를 지정할 때는 *범위 로 결정
+    //console.log(num1);
+
+    //card1=Math.floor(Math.random()*11)+1;
+    //card2=Math.floor(Math.random()*11)+1;
+    //card3=0;
+
+    //card3=((card1+card2) <= 14) ?Math.floor(Math.random()*11)+1 :0;
+
+    //document.write("나의 카드는 : " + card1+", "+card2+", "+card3+"<br>");
+    //document.write(" 합 : "+(card1+card2+card3));
+
+// `(~를 시프트 빼고 눌렀을 때 나오는 거) : 백틱
+//  복잡한 계산결과에 관해 조금이나마 줄여 쓸 수 있을 수 있긴 함
+//  출력내용 = result((num1*num2)>=)?"큰 수("+num1+" + "+num2+")" :`작은 수("${num1}" + ${num2})`;
+//  document.write(출력내용);
+
+        num1=Math.floor(Math.random()*50)+1;
+        num2=Math.floor(Math.random()*50)+1;
+
+        result=((num1*num2)>=1200) ?"큰 수" :"작은 수";
+        document.write(num1*num2);
+        document.write("<br>");
+        document.write("곱한 결과 값은? : " +result);
+
+
+
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>

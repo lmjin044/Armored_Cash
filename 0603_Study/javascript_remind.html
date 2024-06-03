@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+
+    
+/*변수 : 단일 데이터가 저장된 메모리 공간(ram에 저장)
+        카넬 표기법으로 작성하는 것이 일반적 >> 일반적으로 문자로 시작해야 함
+        (첫 단어는 소문자, 두번째 단어부터 대문자로 시작 >> blueCup, myName)
+        시스템예약어로 사용 불가 >> ex.parseInt와 같이 기존에 있는 명령어 같은거
+
+  출력  :
+    1)document.write(출력할 내용); : html 문서(document)의 body 태그에(출력할 내용) 작성(write)해라
+                                    단 자바스크립트에서 body태그는 body엘리먼트(객체)로 부름
+
+  입력 : 
+    1)prompt() : 현재 페이지에 종속되어 입력할 수 있는 창을 만들어 화면에 표시하는 방법
+        =모달(Modal)창
+        ≠팝업(PopUp)창 : 현재 화면에 별도의 다른 창을 만들어 보여주는 기법
+                 입력한 숫자열 또한 문자로 인식해 계산식에서는 그대로 사용할 수 없다
+                  >> parseInt(), parseFloat() Number()등으로 전환해야 함
+
+        문)주유소에서 NN 리터만큼 휘발유를 넣고자 한다(이때 휘발유는 1,636원)
+        
+        답)fillFuelCar = parseInt(prompt("넣을 양 "));
+            >> 1)prompt로 입력한 문자열 값
+               2)parseInt 함수로 숫자 전환
+               3)전환된 숫자는 fillFuelCar라는 변수에 저장
+           gasolineCost = 1636; (리터당 얼마인지를 금액 지정)
+           gasPrice= gasolineCost * fillFuelCar;
+
+           document.write("상품명 : 휘발유<br>");
+           document.write("판매량 : + "fillFuelCar" +"<br>");
+           document.write("단가 : " +gasolineCost +"<br>");
+           document.write("지불금액 : " + gasPrice+"<br");
+*/
+
+    triAngleBottom = parseInt(prompt("밑변을 입력하세요"));
+    triAngleheight = parseInt(prompt("높이를 입력하세요"));
+
+    area=Math.floor(triAngleBottom*triAngleheight/2);
+        //Math.floor(숫자) >> 정수만 추출함. 좀 더 정확한 숫자를 뽑아낼때 사용
+        //Math.round(숫자) >> 소숫점 이하 반올림 (만약 소숫점 n자리까지 표현 하고 싶다면?)
+            /*예를 들어 num=20.345; 라고 지정한 변수가 있다 하자.
+            num.toFixed(1); 라고 한다면 소숫점 첫째 자리인 20.3까지 출력된다.
+            단 숫자가 아닌 문자로 출력 되므로 parseFloat(num.toFixed(1));로 숫자 변환이 필요*/
+            
+    document.write("삼각형의 밑변은 " +triAngleBottom +"입니다.");
+    document.write("<br>");
+    document.write("삼각형의 높이는 " +triAngleheight +"입니다.");
+    document.write("<br>");
+    document.write("<br>");
+    document.write("삼각형의 총 넓이는 " + +(triAngleBottom*triAngleheight)/2 + "입니다.");
+
+    document.write("<ul><li>1번리스트</li><li>2번리스트</li></ul>");
+
+    /*위와 같이 스크립트 내에 태그를 입력해 body 태그의 기능을 일부 이용할 수 있다*/
+
+
+        
+</script>
+</head>
+<body>
+    
+</body>
+</html>
