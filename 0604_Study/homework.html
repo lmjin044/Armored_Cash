@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+    /*
+    과제 : 
+        1) 3개의 정수를 입력 받아 가장 큰 수를 출력하시오 (if / else if 구문 사용.)
+         ※단 같은 숫자를 입력하지 않는다.
+
+        2)주사위 게임은 컴퓨터와 함께
+          -컴퓨터와 내가 주사위를 각각 2개씩 던져 그 합이 더 큰 쪽이 승리
+          -단 같은 값이 나오는 경우, 그 값을 낸 쪽이 이긴다.
+           ex) 컴퓨터가 4,6 내가 2, 2일 경우 같은 값을 낸 내가 승리.
+    */
+
+
+document.write("Q1. 3개의 정수를 입력 받아, 가장 큰 수를 출력하시오(단, 같은 숫자는 입력하지 않는다.)");
+document.write('<hr>');
+
+num1=Number(prompt("첫 번째 숫자를 입력하시오."));
+num2=Number(prompt("두 번째 숫자를 입력하시오."));
+num3=Number(prompt("세 번째 숫자를 입력하시오."));
+
+if((num1>num2 && num1>num3)){
+    document.write("가장 큰 수는 " +num1 +"입니다.");
+}else if(num2>num3){
+    document.write("가장 큰 수는 " +num2 +"입니다.");
+}else{
+    document.write("가장 큰 수는 " +num3 +"입니다.");
+}
+document.write('<br>');
+document.write('<br>');
+
+
+
+
+document.write("Q2. 주사위를 굴려 합이 더 큰 쪽이 승자!");
+document.write('<hr>');
+
+comDice1=Math.floor(Math.random()*6)+1;
+comDice2=Math.floor(Math.random()*6)+1;
+
+plaDice1=Math.floor(Math.random()*6)+1;
+plaDice2=Math.floor(Math.random()*6)+1;
+
+comDice=Number(comDice1+comDice2);
+plaDice=Number(plaDice1+plaDice2);
+
+if(comDice1 == comDice2){
+    document.write(`컴퓨터의 주사위가 (${comDice1}), (${comDice2})로 컴퓨터 같은 값 승리!`);
+}else if(plaDice1 == plaDice2){
+    document.write(`플레이어의 주사위가 (${plaDice1}), (${plaDice2})로 플레이어 같은 값 승리!`);
+}else if(plaDice > comDice){
+    document.write(`플레이어의 주사위가 (${plaDice1}), (${plaDice2})로 플레이어 높은 값 승리!`);
+}else if(comDice > plaDice){
+    document.write(`컴퓨터의 주사위가 (${comDice1}), (${comDice2})로 컴퓨터 높은 값 승리!`);
+}else{
+    document.write(`컴퓨터와 플레이어가 각각 (${comDice}), (${plaDice})로 무승부!`);
+}
+
+
+</script>
+
+
+
+</head>
+<body>
+    
+</body>
+</html>
