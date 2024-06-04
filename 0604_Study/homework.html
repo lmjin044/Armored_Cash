@@ -18,27 +18,39 @@
 
 
 document.write("Q1. 3개의 정수를 입력 받아, 가장 큰 수를 출력하시오(단, 같은 숫자는 입력하지 않는다.)");
-document.write('<hr>');
+document.write('<br>');
+document.write('<br>');
 
 num1=Number(prompt("첫 번째 숫자를 입력하시오."));
 num2=Number(prompt("두 번째 숫자를 입력하시오."));
 num3=Number(prompt("세 번째 숫자를 입력하시오."));
 
+document.write(`첫 번째 숫자는 ${num1}입니다`);
+document.write('<br>');
+document.write(`두 번째 숫자는 ${num2}입니다`);
+document.write('<br>');
+document.write(`세 번째 숫자는 ${num3}입니다`);
+
+document.write('<br>');
+document.write('<br>');
+document.write('<br>');
+
 if((num1>num2 && num1>num3)){
-    document.write("가장 큰 수는 " +num1 +"입니다.");
+    document.write(`가장 큰 수는 첫 번째 숫자 ${num1}입니다.`);
 }else if(num2>num3){
-    document.write("가장 큰 수는 " +num2 +"입니다.");
+    document.write(`가장 큰 수는 두 번째 숫자 ${num2}입니다.`);
 }else{
-    document.write("가장 큰 수는 " +num3 +"입니다.");
+    document.write(`가장 큰 수는 세 번째 숫자 ${num3}입니다.`);
 }
 document.write('<br>');
 document.write('<br>');
-
-
-
-
-document.write("Q2. 주사위를 굴려 합이 더 큰 쪽이 승자!");
 document.write('<hr>');
+
+document.write('<br>');
+document.write("Q2. 주사위를 굴려 합이 더 큰 쪽이 승자!");
+document.write('<br>');
+document.write('<br>');
+
 
 comDice1=Math.floor(Math.random()*6)+1;
 comDice2=Math.floor(Math.random()*6)+1;
