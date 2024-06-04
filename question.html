@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+//가위바위보!(가위 =1 바위 =2 보 =3)
+//컴퓨터는 랜덤값, 나는 prompt로 직접 입력
+//결과는 나를 기준으로 승, 패, 무승부를 출력할 것
+/*
+document.write("가위바위보!");
+document.write("<br>");
+document.write("<br>");
+
+rspPLA=Number(prompt("가위는 1, 바위는 2, 보는 3으로 가위바위보!"));
+rspCOM=Math.floor(Math.random()*3)+1;
+
+if(rspCOM == rspPLA){
+    document.write(`지금은 무승부! - 나 : (${rspPLA}), 컴퓨터 : (${rspCOM})`);
+}else if(((rspCOM == 1) && (rspPLA == 2)) || ((rspCOM == 2) && (rspPLA == 3)) || ((rspCOM == 3) && (rspPLA == 1))){
+    document.write(`내가 이겼다! - 나 : (${rspPLA}), 컴퓨터 : (${rspCOM})`);
+}else{
+    document.write(`내가 졌다! - 나 : (${rspPLA}), 컴퓨터 : (${rspCOM})`);
+}*/
+//위 경우는 승리 요소를 전부 한 문장에 or 문구를 사용하여 한 줄로 구현한 것.
+
+/*
+혹은 아래와 같이 간단하게 정의를 내리는 것으로 갈음이 가능!
+
+result=rspPLA-rspCOM;
+
+if(result ==0){
+    document.write("지금은 무승부!");
+}else if(result==1 || result==-2){
+    document.write("승리!");
+}else{
+    documnet.write("패배");
+}
+
+*/
+
+
+
+    function start(){                   //자바스크립트에서 모든 함수를 시작할 때 시동어
+        //alert("클릭... 하셨군요?");
+        //document.write("클릭... 하셨군요?");   
+        document.getElementById('출력위치').innerText="<br>슬슬 집에 가고 싶어졌다.";
+        
+    } //지금은 클릭을 했을 경우, 중괄호 안의 내용이 실행되도록 하는 방식
+
+    //document.write를 여기서 잘 안 쓰는 이유 :body태그를 직접적으로 차지해서 기존의 버튼이 사라짐
+    //자바스크립트 메뉴에 body태그 속 내용을 꾸밀 경우 id 등을 사용
+    //따라서 문서에서 엘리먼트(태그와 같은 요소)를 가져오라는 명령어를 사용함 >> 
+    //getElementByID : body태그에서 지정한 id를 가져오겠다.
+    //innerText : 글씨를 넣겠다.(태그 넣어봐야 텍스트 형식으로 출력된다.)
+    //  ※innerHtml : 글씨와 태그를 넣으면 태그가 별도로 작동된다.
+
+
+
+
+    /*
+    과제 : 
+        1) 3개의 정수를 입력 받아 가장 큰 수를 출력하시오 (if / else if 구문 사용.)
+         ※단 같은 숫자를 입력하지 않는다.
+
+        2)주사위 게임은 컴퓨터와 함께
+          -컴퓨터와 내가 주사위를 각각 2개씩 던져 그 합이 더 큰 쪽이 승리
+          -단 같은 값이 나오는 경우, 그 값을 낸 쪽이 이긴다.
+           ex) 컴퓨터가 4,6 내가 2, 2일 경우 같은 값을 낸 내가 승리.
+
+    
+    
+    */
+
+</script>
+</head>
+<body>
+    <button onclick="start()">클릭해주세요</button> 
+    <!--
+        위 생성된 버튼을 클릭하면 연동된 자바스크립트의 코드를 실행한다
+        뜻은 "버튼 태그를 클릭하면 자바스크립트에서 start라는 이름의 함수를 실행해라."
+        
+
+        물론 특정 키를 눌러 움직이게 하거나 마우스를 위로 올리는 것으로 트리거도 가능
+        이러한 일련의 것들을 전부 '이벤트'라고 한다.
+    -->
+    <h1 id="출력위치"></h1>
+</body>
+</html>
