@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+/*문제 : 
+기본 주차비 : 1000원
+기본 주차시간 : 30분(12분 주차해도 1000원)
+    주차시간 이후 10분 이상 주차시 100원 추가
+    
+    -2시간 이상 주차시 기본 : 1700원
+        (2시간 5분 = 1700원)
+        (2시간 23분 = 1900원 / 20분 오버로 200원 추가)
+    -4시간 이상 주차시 기본 : 2700원
+        (4시간 35분 주차시 기본 + 30분으로 3000원)
+        
+와 같은 조건일 때 주차 시간(분 기준)에 따른 주차비를 계산하시오 :*/
+
+
+/*park=Number(prompt("몇 분 주차하셨습니까?"));
+
+parkBase=30;
+parkTwo=120;
+parkFour=240;
+parkCost=1000;
+parkTwoCost=1700;
+parkFourCost=2700;
+
+parkBaseOver=Number(park<=30)? parkCost : ParkCost + Math.floor( (park-30)/10 )*100 ;
+parkTwoOver=Number(park==120)? parkTwoCost : ParkTwoCost + Math.floor( (park-120)/10 )*100 ;
+parkFourOver=Number(park==240)? parkFourCost : ParkFourCost + Math.floor( (park-240)/10 )*100 ;
+
+
+// parkBaseOver=Number(park>=30) ? ParkCost + Math.flooor( (park-30)/10 )*100 : parkCost ;
+// parkTwoOver=Number(park>=120) ? ParkCost + Math.flooor( (park-120)/10 )*100 : parkTwoCost ;
+// parkFourOver=Number(park>=240) ? ParkCost + Math.flooor( (park-240)/10 )*100 : parkFourCost;
+
+
+
+
+document.write("주차금액은 " + )*/
+
+cost=1000; //2시간이면 1700, 4시간이면 2700
+parkTime=3; // 2시간이면 12, 4시간이면 24 //35<40  35%10=3 : 39분까지는 기본요금인 1000원 = (0<=3)
+add=100;
+
+cpt = Number(prompt("총 주차시간은 몇 분?"));
+time=Math.floor(cpt/10); 
+//주차시간은 입력한 시간에 10분을 나누어 소숫점을 버린 정수를 따질 것
+//(cpt가 49라면 10으로 나누었을 때 4가 나오는 식)
+cost=(cpt>=240) ?2700 : (cpt>=120) ?1700 : cost; 
+parkTime=(cpt>=240)?24 : (cpt>=120) ?12 :parkTime;
+/*
+두 식을 한 번에 정리하는 타입 : 
+ 1)cpt가 240이면 2700을, 아닐때 120이상이라면 1700을, 그것도 아니면 1000을 출력하시오
+ 2)cpt가 240이면 24를, 아닐때 120이상이라면 12를 그것도 아니면 3을 출력하시오*/
+
+
+price=(time<=parkTime) ?cost: cost + (time - parkTime)*add; 
+//금액은 시간이 주차시간보다 작거나 같을 경우 그에 해당하는 금액을, 아니면 금액에 추가 금액을 더하시오.
+
+document.write(`주차시간: ${cpt}분 , 주차비 : ${price.tolocaleString()}원<br>`);
+
+//만약 천 단위로 자릿점을 찍고 싶으면 변수.tolocaleString()를 출력
+
+
+
+
+
+
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

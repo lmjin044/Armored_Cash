@@ -22,11 +22,13 @@
 
  */
 
-document.write("문제 1.");
+document.write("문제 1. 1잔에 2분, 당신의 수명이 줄어든다...! ");
 document.write("<br>");
+document.write("<br>");
+
     soju=2;
     drink=parseFloat(prompt("마신 소주 잔은?"));
-    minite=soju*drink;
+    minite=soju*drink*365*20;
     hour=parseInt(minite/60); 
     day=parseInt(hour/24);
 
@@ -40,8 +42,11 @@ document.write("<br>");
 document.write(("이 사람의 수명은 " + day)+ "일 감소했습니다.");
 document.write("<br>");
 document.write("<br>");
+document.write("<br>");
+document.write("<br>");
 
-document.write("문제 2.");
+document.write("문제 2. : 두 주사위의 값이 동일하면 당첨! ");
+document.write("<br>");
     dice1=Math.floor(Math.random()*6)+1;
     dice2=Math.floor(Math.random()*6)+1;
     result=(dice1 == dice2)? "당첨" :"꽝";
