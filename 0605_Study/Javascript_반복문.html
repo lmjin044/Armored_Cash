@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+/*
+반복문 : 중복, 카운트가 필요, 반복적으로 동작해야 하는 경우
+        요구사항은 초기값, 조건식, 증감식
+        = 시작값과 종료값
+    종류) 
+        1)for :  
+        2)while : 
+        -구동원리
+          초기값 설정 >> 조건식을 비교 >> 조건이 참임을 확인 >> 참일 경우 while문에 있는 {}을 실행 >>
+          증감식 참조 >> 조건식을 비교 >> 조건이 참임을 확인 >> 참일 경우 while문에 있는 {}을 실행 >>
+          (반복) >>
+          증감식 참조 >> 조건식을 비교 >> 조건이 거짓임을 확인 >> 종료
+
+        -예시
+            초기값;             var i=1;         : 시작값, 초기값임
+            while(조건식){  >>  while( i<=10 ){  : i라는 변수는 10까지가 참이다.
+                증감식;         i++;             : i가 10이 될 떄까지 +1을 반복해라.
+            }                   }
+
+        >> 응용하면 아래와 같다
+            var i=1;
+            while(1<=5){
+                document.write(i+ "번. div 출력<br>");
+                i++;
+            }
+        이러면 html로 출력할 때 5번까지 반복해서 출력된다.
+
+        3)do~while :
+
+        ※for과 while 문은 구조가 같다
+    
+*/
+
+//while 구문 실예시 : 게임을 12판 하면 어떻게?
+
+
+    var i=1;
+    while(i<=12){
+        document.write( i +"게임을 하고 있습니다. <br>");
+        //게임 진행을 위한 코드를 삽입해야 정상 작동
+        document.write("게임이 종료되었습니다.");
+        i++;
+    }
+
+
+var i=1;
+while(i<=9){
+    document.write("<br> 2 * " +i+ " = " +(i*2));
+    i++;
+}
+
+var i=1;
+while(i<=100){
+    document.write("<br>"+i+"번 출력");
+    i++;
+}
+
+//1~10 사이 2의 배수만 출력
+
+
+    var i=2;
+    while(i<=10){
+        document.write("<br>"+i);
+        i=i+2;
+    }
+
+
+var i=1;
+while(i<=10){
+    document.write("<br>"+i);
+    i++;
+}
+
+//6의 배수만 출력해라(1~100)
+
+var i=1;
+while(i<=100){
+    if(i%6 == 0){
+        document.write("<br>"+i);
+    }
+    i++;
+}
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

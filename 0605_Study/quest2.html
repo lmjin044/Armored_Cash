@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+
+//동전 맞추기 (1은 앞면, 2는 뒷면)
+//10판을 할 수 있도록
+
+/*
+var i=1;
+coin=Number(prompt("1은 앞면, 2는 뒷면"));
+toss=Math.floor(Math.random()*2)+1;
+
+
+while(i<=10) {
+    coin=Number(prompt("1은 앞면, 2는 뒷면"));              //10번 동안 입력을 계속 하고 싶다면 반복문 내에
+    toss=Math.floor(Math.random()*2)+1;                    //조건을 다시 추가하는 것으로 ssap가능
+    if(coin == toss){
+        document.write(`${i}번째 게임, 맞췄다!<br>`);
+    }else{
+        document.write(`${i}번째 게임, 틀렸다!<br>`);
+    }
+
+    i++;
+}
+*/
+
+//컴퓨터가 가지고 있는 숫자를 맞추기
+//컴퓨터는 1~50 중 하나를 랜덤 값으로 가짐
+//맞출 때까지 계속 입력
+//정답과 입력값을 비교하여 높으면 업, 낮으면 다운
+
+/*
+for(var i=1; i<=10; i++){ } >> 반복 횟수가 정해져 있는 경우에 사용
+    ※만약에 for 구문으로 무한 반복을 하고자 한다면?
+     >> for(;true;){}
+
+while >> 반복 횟수가 정해져 있지 않은 경우에 사용(정확히는 모르는 경우)
+
+*/
+com=Math.floor(Math.random()*50)+1;
+
+var i=1;
+while(i<=10){
+    user=Number(prompt("Up&down 숫자 맞추기 : "));
+    if(user=com){
+        alert("정답!");
+        break;                 //같은 값 나왔으니 멈춰라(while 구문에 속함)
+    }else if(user>com){        //정답보다 더 높게 입력했을 때         
+        alert("Down!");
+    }else if(user<com){        //정답보다 더 낮게 입력했을 때 
+        alert("Up!");
+    }
+
+    i++;                       //다만 이렇게 하면 언제까지 어깨춤...이 아니라 끝이 없다.
+}
+
+
+</script>
+
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+//증가되는 최대값은 20, 감소되는 최소값은 -10으로
+//각기 최대, 최소가 될 경우 더 이상 증감 되지 않도록 하는 법은?
+
+
+    count=0;
+
+    function up(){ 
+        if(count<20){       //count가 20일 때 거짓이 되는 전제가 필요함
+            count++;
+        }                               
+        var divBox = document.getElementById("box");        
+        divBox.innerText = count;               
+    }
+
+    function down(){
+        if(-10<count){      //count가 -10일 때 거짓이 되는 전제가 필요함
+            count--;      
+        }                         
+        var divBox = document.getElementById("box");        
+        divBox.innerText = count;      
+    }  
+
+</script>
+
+
+
+</head>
+<body>
+    <button onclick="up()">증가</button>
+    <button onclick="down()">감소</button>
+
+    <div id="box" style = "font-size:40px;"></div>
+</body>
+</html>
