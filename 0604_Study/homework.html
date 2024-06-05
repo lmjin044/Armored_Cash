@@ -61,7 +61,28 @@ plaDice2=Math.floor(Math.random()*6)+1;
 comDice=Number(comDice1+comDice2);
 plaDice=Number(plaDice1+plaDice2);
 
-if(comDice1 == comDice2){
+result = `플레이어 : ${plaDice1}, ${plaDice2} (${plaDice}) , 컴퓨터 : ${comDice1}, ${comDice2} (${comDice})`;
+if(plaDice === comDice){                                        //플레이어와 컴퓨터의 총 주사위 값이 동일하...
+    if(plaDice1 == plaDice2 && comDice1 !=comDice2){                // 긴 한데 그 1) 플레이어의 두 주사위 눈은 같고 컴퓨터는 그렇지 않을 때
+        document.write("플레이어 승리! " +dice);
+    }else if(plaDice1 != plaDice2 && comDice1 == comDice2){         // 긴 한데 그 2) 컴퓨터의 두 주사위 눈이 같고 플레이어는 그렇지 않을 때
+        document.write("플레이어 패배! " +dice);
+    }else{                                                        //면 비김
+        document.write("비겼다! " + result);
+    }
+}else if(plaDice > comDice){                                    //지 않고 플레이어의 주사위 값이 컴퓨터보다 크....
+    if(plaDice1 != plaDice2 && comDice1 == comDice2){               // 긴 한데 그 1) 컴퓨터의 두 주사위 눈이 동일할 경우
+        document.write("플레이어 패배! " + result);                      
+    }
+    document.write("플레이어 승리 " + result);                     //면 내가 이김
+}else{                                                          //지 않고 컴퓨터가 플레이어의 주사위 값보다 크.... 
+    if(plaDice1==plaDice2 && comDice1 !=comDice2){                  // 긴 한데 그 1) 플레이어의 두 주사위 눈이 동일할 경우
+        document.write("플레이어 승리! " + result);
+    }
+    document.write("플레이어 패배! " + result);                     //면 내가 짐
+}
+
+/*if(comDice1 == comDice2){
     document.write(`컴퓨터의 주사위가 (${comDice1}), (${comDice2})로 컴퓨터 같은 값 승리!`);
 }else if(plaDice1 == plaDice2){
     document.write(`플레이어의 주사위가 (${plaDice1}), (${plaDice2})로 플레이어 같은 값 승리!`);
@@ -71,7 +92,11 @@ if(comDice1 == comDice2){
     document.write(`컴퓨터의 주사위가 (${comDice1}), (${comDice2})로 컴퓨터 높은 값 승리!`);
 }else{
     document.write(`컴퓨터와 플레이어가 각각 (${comDice}), (${plaDice})로 무승부!`);
-}
+}*/
+
+
+
+
 
 
 </script>
