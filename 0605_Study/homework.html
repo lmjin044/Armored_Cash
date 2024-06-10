@@ -24,10 +24,21 @@
 
 */
 
+    com = Math.floor(Math.random()*50)+1;
+    user = Number(prompt("정수 하나를 입력하시오"));
+    var i=1;
+    while(i<=10){
+        if(user==com){
+            alert("정답!");
+            break;
+        }else if(user > com){
+            alert("Up!");
+        }else{
+            alert("down!");
+        }
 
-
-
-
+        i++ 
+    }
 
 
 </script>

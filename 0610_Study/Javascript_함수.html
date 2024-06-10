@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+/*
+function : 자바스크립트에서 '나 함수 시작 할건데'라는 선언
+    이때 함수란 특정 기능(=작업)을 실행하기 위한 코드블록({}에 들어가는 것들)
+    사용자가 어떤 행동을 해야 작동이 되도록 하는 방식 = 이벤트는 전부 함수로 처리됨
+        이 선언이 없는 상태로 코드를 작성후 곧바로 스크립트에 출력하면?
+        : html 파일을 열면서 순차적으로 실행됨 = 아무것도 안 해도 상단의 것부터 자동으로 실행되어버림
+
+자바스크립트의 함수 : 이벤트 처리, 부가적인 코드 실행을 위해 만들어 사용
+    이벤트 = 브라우저를 대상으로 클라이언트(사용자)가 하는 모든 행위
+    (클릭, 더블클릭, 마우스 움직이기, 브라우저를 드래그 하는 것, 키보드의 다양한 입력 등)
+
+    형태 :
+     function 함수명( ){ 실행할 내용 }
+        함수명은 함수 기능에 맞는 이름으로 만들 것
+        소괄호 안에 있는 것은 어떤 동작을 받기 위한 일종의 전제와도 같음  
+        함수가 실제로 화면에 보여지기 위해서는 호출이 별도로 필요함
+    
+    
+    ex)
+        x=a; y=b; z=c;
+
+        function print (x, y, z){ //화면에 출력하기 위한 함수 ※ 이때 x,y,z를 매개변수라고 함
+            document.write("출력" +(x,y,z));
+        }
+        매개변수가 필요한 경우 : 함수 코드블록{} 에 데이터 입력이 발생되지 않는 경우
+                               함수 내용으로 데이터 계산, 출력, 조건식 형성을 하는 경우
+                               함수 자체적으로 데이터 입력이 없다면 외부로부터 데이터를
+                               전달 받아 사용해야 함
+
+        print(); //print 함수를 호출함 ※
+*/
+
+//자바스크립트에서 html 태그의 제어 방법 : 해당 태그를 선택해야 함
+//선택하는 방법은 body 부분 내에서 지정한 [태그명, id, class, name] 등이 있다.
+//  ※태그명, class, name 사용 : 배열 구조(값이 여러 개로)로 표현 됨(아직 6월 10일 기준 안 배운 개념)
+//  ※id 사용 : 객체 단위(값이 단일)로 표현됨 >> 변수 비슷하게 사용 가능
+
+// document : 현재 html 문서라는 뜻으로
+// getElement : 태그(엘리먼트)를 찾으라는 뜻으로(*카멜표기법 사용이라 getelement로 사용 불가!) 아래를 뒤이어 붙인다.
+//  id : ById
+//   ※단 id 외 다른 요소를 사용할 경우, 복수의 값을 지니고 있으므로 getElement's'로 뒤에 복수형을 붙여야 한다
+//      class : ByClassName
+//      태그명 : ByTagName
+//      name : ByName
+
+/*
+    function calc(){                        //함수를 정의함 
+                    
+        let num1=Number(prompt("첫 번째 정수"));    //let를 붙여야 해당 중괄호 안에서만 사용 가능
+        let num2=Number(prompt("두 번째 정수"));    
+        print(num1, num2);                         //함수 명이 다르면 완전히 다른 위치에 만들어짐
+        
+        //입력을 전부 받은 다음 호출을 해야 함 : 
+    }
+
+calc 부분에 요소를 입력한 경우 위 함수에 num1 num2로 지정하여 매개변수로 삼아 계산이 가능함
+
+    function print(num1, num2){
+
+        sum=num1+num2;
+        document.getElementById("result").innerHTML=sum;    //html에 id가 result인 태그를 가지고 와서 해당 문구를 html로 인식해 결과를 계산해라
+
+    }
+
+함수의 매개변수 = 지역변수 : {}블록 안에 생성된 변수 = {}안에서만 사용 가능(주로 var, let 사용)    
+ ≠ 전역변수 : 어느 곳에서나 사용 가능, {}블록 안에 생성하지 않은 변수
+             자바스크립트 상단에 선언해야 함(주로 let, const)
+             {} 안에서는 아무 접두사도 붙이지 않음
+
+ ☆let과 var의 차이 : 같은 변수의 이름을 다시 쓸 수 있는가?
+    let : 재할당 불가 >>> let a = 10; let a = 20; (불가) 
+    var : 재할당 가능 >>> var a = 10; var a = 20; (가능) 
+ 
+ ☆변수 간 우선 순위에서 지역변수가 더 앞선다.
+ 예시)
+    var count=10;               << 여기서 쓰인 count는 전역변수
+    function increment(){
+        var count = 20;         << 여기서 쓰인 count는 지역변수 : 이쪽이 더 먼저 사용 된다
+    }
+    function increment(count){
+    }
+
+ ☆var, let, const 이런 것을 앞에 안 붙이면 전역변수로 취급한다.
+ ☆전역변수를 너무 남용하면 코드가 꼬여서 알아보기 힘들다.
+ */
+
+ let num1 = 0;
+ let num2 = 0;
+
+
+ function input1(){
+    num1=Number(prompt("정수1을 입력하세요."));
+    document.getElementById("result").innerHTML=num1;
+ }
+
+ function input2(){
+    num2=Number(prompt("정수2를 입력하세요."));
+    document.getElementById("result").innerHTML=num2;
+ }
+
+ function sum(){
+    sum1=num1+num2;
+    document.getElementById("result").innerHTML=`${num1} + ${num2} = ${sum1}`;
+ }
+
+//이때 var을 이용해 매개변수로 num을 지정했어도 중복처리가 안 됨 = 문제 없음 
+
+/*
+ function sum(){
+    sum1=num1+num2;
+    document.getElementById("result").innerHTML=`${num1} + ${num2} = ${sum1}`;
+ }
+
+  >> 여기까지만 하면 더하기 암만 눌러도 덧셈이 실행 안 됨 
+    왜냐면 input1~2에 쓰인 입력값은 각각의 스크립트 내에서만 행동하도록 되어있어서 그럼
+    전역변수로 변경해서 전달하는 식으로 사용 가능
+     ∴ 모든 함수 목록의 상단에 let으로 전역변수 선언을 해서 sum 내에서도 prompt로 입력한 값을 끌고 올 수 있도록 해야함
+*/
+</script>
+
+
+
+</head>
+<body>
+    <!--onclick="함수이름()" : html 태그 이벤트(클릭)에 의한 함수 호출 방법
+    <button onclick="calc()">계산</button> 여기가 함수를 호출하는 부분 : calc() 부분이 자바스크립트를 불러오는 코드
+    <div id="result"></div>
+-->
+
+    <!--입력1을 클릭해 정수 하나를 입력하고 div#result로 출력하기-->
+
+    <button onclick = "input1()">입력1</button>
+    <button onclick = "input2()">입력2</button>
+    <button onclick = "sum()">더하기</button>
+
+    <div id="result"></div>
+
+</body>
+</html>

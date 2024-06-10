@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+
+function getData( op ){     //op라는 매개변수 안에는 + - * / 가 들어갈 수 있다
+    var n1 = Number(document.querySelector("#num1").value); //이렇게 하면 n1에는 첫번째 박스에 입력한 숫자가 저장된다
+    var n2 = Number(document.querySelector("#num2").value);
+    var 결과 = null;         //null = 값이 없다. 
+    switch(op){
+        case '+': 결과 = n1+n2;
+            break;
+
+        case '-': 결과 = n1-n2;
+            break;
+
+        case '*': 결과 = n1*n2;
+            break; 
+
+        case '/': 결과 = n1/n2;
+            break;
+
+
+    }
+
+    document.querySelector("#result").innerHTML=결과;
+}
+
+ function plus(){
+    getData('+');           //이걸 매개변수에 저장된 '인자'라고 함 () 안에 문자열로 +기호가 저장됨
+ }
+
+ function minus(){
+    getData('-'); 
+ }
+
+ function mul(){
+    getData('*'); 
+ }
+
+ function div(){
+    getData('/'); 
+ }
+
+ //이럴경우 중복으로 공통되는 함수들이 너무 많아서 이를 하나의 함수로 축약하는게 더 빠름
+ //document.querySelectorAll(".box");                        //이쪽은 아예 다수의 태그를 선택할 때
+ //이거 제대로 못 하면 오늘 과제 죽쑨다 : 구조는 동일하되, 단 하나의 함수로 사칙연산이 가능하게 할 것
+
+
+
+
+
+
+
+
+
+</script>
+
+</head>
+<body>
+    <div id="input box">
+        <input type="text" id="num1">
+        <input type="text" id="num2"> 
+    </div>      
+<!--
+        
+input : 그 자체가 텍스트 박스를 만드는 것
+        타입에 따라 input 박스 안에서 표현되는 글씨들이 달라진다
+        단 타입에 관계없이 자동으로 '텍스트'로 인식된다.(range 제외)
+    ※타입과 관계없이 input에 입력한 모든 값은 value에 저장이 된다.(굳이 적지 않아도 input이 갖고 있음)
+    ※value는 다른 태그엔 존재하지 않음!
+
+ -password : 입력하는 모든 텍스트를 ●표시로 바꿈
+ -date : 연도, 월, 일을 입력
+ -number : 텍스트박스에 위, 아래 표시가 있어 클릭시 숫자가 각기 +1, -1 처리가 됨(자바에선 자동으로 숫자로 인식)
+ -range : 기본 0부터 10까지를 숫자가 아닌 일종의 바로 바꿈 (디자인 변경은 css로)
+
+
+ -->
+    
+    <button onclick = "plus()">더하기</button>
+    <button onclick = "minus()">빼기</button>
+    <button onclick = "mul()">곱하기</button>
+    <button onclick = "div()">나누기</button>
+
+
+
+    <div id="result"></div>
+
+</body>
+</html>

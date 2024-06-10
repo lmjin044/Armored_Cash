@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+/*문1
+1~100까지의 숫자를 출력
+    단 3의 배수에 해당되는 숫자는 그 숫자 대신 3배로
+    단 8의 배수에 해당되는 숫자는 그 숫자 대신 8배로
+    또한 3과 8의 배수에 공통되는 숫자는 3,8배로 출력할 것*/
+
+
+for(var i=1; i<=100; i++){
+
+
+    if(i%3 == 0 && i%8 == 0 ){ //이 구문이 있어야 3,8배 공통 배수도 같이 출력 된다
+        document.write("3,8배<br>");
+    }
+    else if(i%3 == 0){ // i에 해당되는 수에 3을 나누기 했을 때 그 나머지가 0인 경우 = 3의 배수
+        document.write("3배<br>");
+    }
+    else if(i%8 == 0){// i에 해당되는 수에 8을 나누기 했을 때 그 나머지가 0인 경우 = 8의 배수
+        document.write("8배<br>");
+    }
+    else{
+        document.write(`${i}<br>`);
+    }
+}
+
+
+
+</script>
+
+
+</head>
+<body>
+    
+</body>
+</html>

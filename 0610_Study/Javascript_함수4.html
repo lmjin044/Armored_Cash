@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    //addEventListener('이벤트 이름', 이벤트 시 처리 되는 함수 이름)
+    //해당 이벤트를 등록시키는 함수로 일일이 버튼을 지정하지 않아도 된다
+
+    document.getElementById("td1").addEventListener('click', save); 
+    
+    //이 경우, td1 영역을 클릭할 때 save 함수를 발동하겠다는 의미
+    //save()가 아닌 이유는 괄호 내의 매개변수를 실행시키겠다는 건데 이건 안 됨
+
+
+
+
+
+</script>
+<body>
+    <body>
+        <table id = "board">
+            <tr>
+                <td id = "td1"></td>
+                <td id = "td2"></td>
+                <td id = "td3"></td>
+            </tr>
+            <tr>
+                <td id = "td4"></td>
+                <td id = "td5"></td>
+                <td id = "td6"></td>
+            </tr>
+        </table>
+        <style>
+            #board{border-collapse: collapse;}
+            #board tr td{
+
+                border: 1px solid black;
+                width : 100px; height : 100px;
+
+            }
+        </style>
+</body>
+</html>

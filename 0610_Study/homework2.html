@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+/*문2
+4개의 숫자로 이루어진 비밀번호를 만들 것
+    각각의 숫자는 1~9로 이루어졌다
+    4개의 숫자는 서로 중복되지 않는다
+        첫 번째 숫자 : 네 번째 숫자보다 2 더 클 것
+        두 번째 숫자 : 세 번째 숫자보다 작을 것
+        4개의 비밀번호 숫자를 각각 정방향과 역방향으로 하여 더하면 16456이다
+            (예시 : 비밀번호가 1234 일 경우 >> 1234 + 4321)
+*/
+
+for(var a=1; a<=9; a++){                        //실제로 n회 이상 틀릴 시 일시정지 방식 나오기 전까진 이렇게 사용함
+    for(var b=1; b<=9; b++){
+        for(var c=1; c<=9; c++){
+            for(var d=1; d<=9; d++){
+                if( a!=b && a!=c && a!=d && b!=c && b!==d && c!=d){
+                    if(a == d+2){
+                        if(b<c){
+                            var password = (a*1000) + (b*100) + (c*10) + d;
+                            var rev = (d*1000) + (c*100) + (b*10) + a;
+                            if(password + rev == 16456){
+                                document.write(`비밀번호 : ${password}`);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>

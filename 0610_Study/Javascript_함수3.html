@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+    function save(){
+        //input 태그에 입력한 내용을 ul#list에 목록으로 출력하기
+        var text = document.querySelector("#data").value;
+        //       = document.getElementById("data").value;
+        var list = document.querySelector("#list")      // ≠id 태그 / ul태그의 객체인 list에 list 이름의 변수 생성
+
+        list.innerHTML = list.innerHTML + "<li>" + text + "</li>"
+
+        //list.appendChild(document.createElement("li")); //ul 태그 안에 새로운 li 태그를 삽입함(계속 점만 나옴)
+
+        //대입 연산자로 저장했으면 곧 변수로도 활용이 가능함
+        //그 말은 곧 반복문으로도 활용이 가능하다는 것이며 기존 것을 저장하고 다시 새로운 것을 가져오는 방식임
+        //단 list.innerHTML = list.innerHTML + "<li>" + text + "</li>"; 는 편법임(코드 꼬일 수 있다)
+        //document.'createElement'("li");
+        //''부분에는 appendChild, createTextNode 로도 활용 가능
+    }
+
+    window.onload = function(){
+        document.getElementById("td1").addEventListener('click', save);     
+    }
+    //왜 안 되는가 : 아직 존재하지 않는 요소를 가지고 오라고 해서(window 상위가 없었을 때 이야기임)
+    //브라우저 화면에 보이게 되면 존재하게 되며 이 이후에 실행을 시켜야 작동하는 것
+    //보다 자세한건 내일 하는걸로
+
+    //addEventListener('이벤트 이름', 이벤트 시 처리 되는 함수 이름)
+    //해당 이벤트를 등록시키는 함수로 일일이 버튼을 지정하지 않아도 된다
+    //이 경우, td1 영역을 클릭할 때 save 함수를 발동하겠다는 의미
+    //save()가 아닌 이유는 괄호 내의 매개변수를 실행시키겠다는 건데 이건 안 됨
+</script>
+
+
+
+</head>
+<body>
+    <table id = "board">
+        <tr>
+            <td id = "td1"></td>
+            <td id = "td2"></td>
+            <td id = "td3"></td>
+        </tr>
+        <tr>
+            <td id = "td4"></td>
+            <td id = "td5"></td>
+            <td id = "td6"></td>
+        </tr>
+    </table>
+    <style>
+        #board{border-collapse: collapse;}
+        #board tr td{
+            border: 1px solid black;
+            width : 100px; height : 100px;
+
+        }
+    </style>
+
+
+
+    <h2>오늘의 나를 칭찬하기</h2>
+    <input type = "text" id = "data">
+
+    <button onclick = "save()">저장</button>
+
+    <ul id = "list">
+
+
+    </ul>
+
+</body>
+</html>
