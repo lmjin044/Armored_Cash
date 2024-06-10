@@ -7,9 +7,46 @@
 <script>
 //문제 : 함수2 문서와 같이 구조는 동일하되, 단 하나의 함수로 사칙연산이 가능하게 할 것
 
+function calculate( op ){     
+    var n1 = Number(document.querySelector("#num1").value); 
+    var n2 = Number(document.querySelector("#num2").value);
+    var 결과 = null;        
+    switch(op){
+        case '+': 결과 = n1+n2;
+            break;
 
+        case '-': 결과 = n1-n2;
+            break;
 
+        case '*': 결과 = n1*n2;
+            break; 
 
+        case '/': 결과 = n1/n2;
+            break;
+
+    }
+
+    document.querySelector("#result").innerHTML=결과;
+}
+
+/*
+ function plus(){           
+    getData('+');           
+ }
+
+ function minus(){
+    getData('-'); 
+ }
+
+ function mul(){
+    getData('*'); 
+ }
+
+ function div(){
+    getData('/'); 
+ }
+
+*/
 
 
 
@@ -29,10 +66,10 @@
         <input type="text" id="num2"> 
     </div>     
 
-    <button onclick = "plus()">더하기</button>
-    <button onclick = "minus()">빼기</button>
-    <button onclick = "mul()">곱하기</button>
-    <button onclick = "div()">나누기</button>
+    <button onclick = "calculate('+')">더하기</button>
+    <button onclick = "calculate('-')">빼기</button>
+    <button onclick = "calculate('*')">곱하기</button>
+    <button onclick = "calculate('/')">나누기</button>
 
     <div id="result"></div>
 
