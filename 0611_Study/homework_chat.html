@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Numbers Display</title>
+<style>
+  .container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  .number-button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container" id="container">
+  <button class="number-button" id="numberButton" onclick="revealNumbers()">Start</button>
+</div>
+
+<script>
+let numbers = getRandomNumbers();            //1~50 중 임의의 숫자를 배열로 반환하기 위해 사용
+let currentIndex = 0;
+
+function getRandomNumbers() {
+  let numbers = [];
+  while (numbers.length < 50) {
+    let randomNum = Math.floor(Math.random() * 50) + 1;
+    numbers.push(randomNum);
+  }
+  return numbers;
+}
+
+function revealNumbers() {                  //버튼을 클릭할 때 숫자를 표시하기 위해 호출
+  let container = document.getElementById('container');
+  let button = document.getElementById('numberButton');
+  let end = Math.min(currentIndex + 20, numbers.length);
+  let numbersToShow = numbers.slice(currentIndex, end);
+
+  if (numbersToShow.length > 0) {
+    let rows = '';
+    for (let i = 0; i < 5; i++) {
+      let row = '';
+      for (let j = 0; j < 4; j++) {
+        let index = i * 4 + j;
+        if (index < numbersToShow.length) {
+          row += `<button class="number-button">${numbersToShow[index]}</button>`;
+        }
+      }
+      rows += `<div>${row}</div>`;
+    }
+    container.innerHTML += rows;
+    currentIndex += 20;
+  } else {
+    button.innerText = "No more numbers";
+    button.disabled = true;
+  }
+}
+
+/*
+반복문 사용 구간 :
+ 1) for(let i = 0; i < 5; i++){이하 생략} 
+    목적 : 각 행에 4개의 숫자를 입력하고 5번째가 되는 숫자는 다음 행으로 넘어가기 위함
+    반복 횟수는 5번
+ 
+ 2) for(let j = 0; j < 4; j++){
+    let index = i*4 + j ;
+    if(index <numbersToShow.length) {
+    이하 생략
+    }  
+ }
+    목적 : 각 행 마다 4번 반복하여 반복할 때마다 숫자버튼을 생성함
+    index < numbersToshow.length 는 마지막 행에서 부족할 수 있는 숫자를 무시함.
+*/
+</script>
+
+</body>
+</html>
