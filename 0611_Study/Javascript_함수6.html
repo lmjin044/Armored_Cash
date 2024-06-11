@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+    window.onload = function(){ //onload는 윈도우를 불러올 때 실행되는 익명(=이름이 없음) 함수로 1번만 실행됨
+        //html 문서 내 모든 리소스(html태그, css, 자바스크립트, 이미지 등등)가 브라우저에 완전히 로드 될 때 실행
+        //onload는 태그에서 발생됨 : img(이미지), iframe(동영상), script(스크립트), link, video 등등
+        
+        document.getElementById("power").addEventListener('click', buttonPress);
+/*
+익명함수 넣는 방법 : 
+        document.getElementById("power").addEventListener('click', function(){
+
+
+        });
+*/
+ 
+            //id가 power인 엘리먼트를 찾아 이벤트를 넣어라
+            //이벤트 순서 : '이벤트명', 실행할 함수의 이름 <<이름 만이다!
+            //이름만 붙여둔 함수는 onload 말고 별도로 해당 이름을 가진 함수를 형성할 것
+            //이름만 붙이면 매개변수(인자)를 넣지 못함 = 데이터 전달이 안 됨
+                //☆매개변수가 필요한 경우 : 익명함수를 넣어라, 단 짧게!
+                //★단점 : 함수 안에 들어갈 내용이 길어지면 그만큼 코드가 길어짐 = 가독성 저하
+                //          >> 내용이 길어지면 아예 함수를 따로 만들어야 함
+    
+        
+    }
+
+
+    let onoff = true; 
+    
+    //3)if 구문을 만들어 다시 켜질 때의 경우도 만들어야 한다.
+    //4)전역 변수로 하는 이유 : 지역변수로 하면 메모리가 남지 않아 일회성으로 종료가 됨
+
+    function buttonPress(){
+
+        document.querySelector("#lcd").style.display = "none"; 
+        //1)자바스크립트 내에서 CSS 적용 : lcd 태그에 클릭을 할 경우 디스플레이가 보이지 않도로 한다. 
+        //2)그런데 위 문장만 있으면 1회성 적용이다. 다시 보이게 하려면?
+        //5)만약 지역변수로 표현하고자 하면? : (사실 11일 기준 안 배운거야)
+        //  -1.class 이름을 넣었다가 빼기
+        //  -2.data-show="block" ~ "none" : id 옆 자리에 쓰는 놈이며 태그에 특정 데이터를 넣어줄 수 있는 방식
+        //  
+    }
+
+</script>
+
+</head>
+<body>
+<style>
+
+#wrap{
+    margin : 0 auto;
+    width : 500px;
+    display : flex;
+    flex-wrap : wrap;
+    gap : 10px;
+}
+
+.bt{
+    box-sizing : border-box;
+    width : 160px; line-height: 200px;
+    border : 1px solid black;
+    text-align : center;
+    font-size : 30px;
+    cursor : pointer;
+}
+
+.bt:first-child{background-color : red; color : white;}
+.bt:nth-child(2), .bt:nth-child(5){background-color: yellow;}
+.bt:nth-child(3), .bt:nth-child(4){background-color: green; color : white}
+
+</style>
+    <div id = "lcd">
+
+        <label>온도</label> <b id = "temp">25</b> <br>
+        <label>운전</label> <b id = "mode">냉방</b> <br>
+        <label>세기</label> <b id = "strength">1</b> <br>
+
+    </div>
+
+    <div id = "wrap">
+
+        <div on id = "power" class = "bt">전원</div>
+        <div id = "increse" class = "bt">온도 ▲</div>
+        <div id = "driving" class = "bt">운전선택</div>
+        <div id = "indirect" class = "bt">간접바람</div>
+        <div id = "reduction" class = "bt">온도 ▼</div>
+        <div id = "wind" class = "bt">바람세기</div>
+    
+    </div>
+</body>
+</html>

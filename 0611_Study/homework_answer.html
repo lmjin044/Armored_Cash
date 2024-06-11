@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script> //문제 : 함수2 문서와 같이 구조는 동일하되, 단 하나의 함수로 사칙연산이 가능하게 할 것
+        
+        function calculate( op ){            //calculate는 줄여서 calc라고 해도 된다
+            var n1 = Number(document.querySelector("#num1").value); 
+            var n2 = Number(document.querySelector("#num2").value);
+            var 결과 = null;        
+            switch(op){
+                case '+': 결과 = n1+n2;
+                    break;
+        
+                case '-': 결과 = n1-n2;
+                    break;
+        
+                case '*': 결과 = n1*n2;
+                    break; 
+        
+                case '/': 결과 = n1/n2;
+                    break;
+        
+            }
+        
+            document.querySelector("#result").innerHTML=결과;
+        }
+        </script>
+
+</head>
+<body>
+
+
+<div id="input box">
+    <input type="text" id="num1">
+    <input type="text" id="num2"> 
+</div>     
+
+<button onclick = "calculate('+')">더하기</button>
+<button onclick = "calculate('-')">빼기</button>
+<button onclick = "calculate('*')">곱하기</button>
+<button onclick = "calculate('/')">나누기</button>
+
+<div id="result"></div>
+
+</body>
+</html>
