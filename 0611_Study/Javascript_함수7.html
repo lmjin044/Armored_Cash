@@ -1,0 +1,40 @@
+<!-- javascript_함수4.html  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+
+    <script src = "./static/javascript/함수7.js"></script>
+
+
+   <style>
+       #score_box{
+           display:flex;
+           width:600px;
+       }
+       #score_box>div{ padding:10px 0; width:150px; box-sizing: border-box; display:flex;}
+       #score_box>div>input{width:50%; margin-left:5px;}
+   </style>
+</head>
+<body>
+   <div id="score_box">
+       <div><label>국어 : </label><input type="text" id="kor"></div>
+       <div><label>수학 : </label><input type="text" id="mat"></div>
+       <div><label>영어 : </label><input type="text" id="eng"></div>
+       <div><label>역사 : </label><input type="text" id="his"></div>
+   </div>
+   <button id="calc">계산</button>
+   <div id="total"></div>
+   <div id="avg"></div>
+   
+</body>
+</html>
+
+    
+    <!-- 자바스크립트의 외부링크는 아래의 css와 달리 위처럼 표현한다.
+    
+    ※ css 외부링크 : 양식
+    <link rel="stylesheet" href="./static/css/파일명.css">
+ -->
