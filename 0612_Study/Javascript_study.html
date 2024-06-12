@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous">
+    </script>
+<!--
+이 주소 위로 또 다른 스크립트를 생성하면 제이쿼리가 사용 안된다. 추가하려면 이 밑에다
+이건 다운로드 없이 인터넷에 연결하는 방식임 가끔 안 되면 새로고침 ㄱ
+
+특징 : 직접 일일이 치면 오류도 개많을 수 있고 쓸데없이 길어지는 함수를 축약 가능
+-->
+
+    <script>
+        /*
+        window.onload=function(){
+            document.getElementById("box").innerHTML="오늘은 수요일";
+
+            document.getElementById("open").addEventListener('click', function(){
+                document.getElementById("box").style.display="block"
+            });
+        
+            document.getElementById("close").addEventListener('click', function(){
+                document.getElementById("box").style.display="none"
+            });
+        
+        }
+        */
+
+
+//이하 아래 제이쿼리를 이용한 방식은 어떻게 사용되는가 알아보자
+         
+
+    $(function(){                           // = window.onload=function(){
+        //$("#box").html("오늘은 수요일");     // = document.getElementById("box").innerHTML="오늘은 수요일";
+        
+        $("#open").on('click', function(){  // = document.getElementById("close").addEventListener('click', function(){         
+            //$("#box").fadeToggle();       // = fadeIn-Out의 기능 : 서서히 투명도를 높이고 줄임
+            //$("#box").toggle();           // = show-hide의 기능 : 보이고 감추는 것을 한 번에
+            //$("#box").show();             // = document.getElementById("box").style.display="block"
+                                            //.show(n); = n의 시간에 걸쳐 모습을 보여라
+            //$("#box").slideDown();            //내용물이 내려가면서 보이게 함
+
+            $("#box").slideToggle();        //slideup-down의 반복
+        });                 
+
+        $("#close").on('click', function(){ // =  document.getElementById("close").addEventListener('click', function(){
+            //$("#box").hide();           // =  document.getElementById("box").style.display="none"
+                                            //.close(n); = n의 시간에 걸쳐 사라져라
+            $("#box").slideUp();               //내용물이 올라가면서 사라짐
+        });
+
+    });
+
+    //$("#태그명") = 제이쿼리를 사용하겠다는 신호
+    //만약 태그가 복수인 경우 #없이 "div"라고만 붙이면 div를 가지는 모든 태그에 적용됨
+    //만약 제이쿼리에서 사용하는 용어가 궁금하면 홈페이지에 검색해서 찾아보면 된다
+
+
+    </script>
+
+</head>
+<body>
+    <button id = "open">열기</button>
+    <button id = "close">닫기</button>
+    <div id="box">
+        <p>오늘 점심메뉴는</p>
+        <p>간장게장, 청국장</p>
+        <p>돈가스</p>
+        <p>짜장면</p>
+        <p>뭐 먹지</p>
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous">
+    </script>
+
+    <script>
+/*
+문제 : 
+두 버튼(이름입력, 나이입력)을 각각 클릭해 input을 나타내어 이름과 나이를 입력
+등록 버튼을 클릭해 화면에 이름, 나이, 태어난 연도를 화면에 출력할 것
+*/
+
+        $(function(){
+            $("#name").hide();          
+            $("#age").hide();  
+                //이걸 안 해 놓으면 버튼 입력이 없어도 입력창이 보임
+
+            $("#nameInput").click(function(){       
+                $("#name").show();                  
+            });
+
+            $("#ageInput").click(function(){
+                $("#age").show();
+            });
+                //버튼을 클릭했을 때 기능이 실행되도록 함
+                //그 기능 : 감춰놨던 입력창이 드러나게 해라
+
+            $("#enroll").on("click", function(){                    //on으로 해도 되고 click으로 해도 되고 그렇다.
+                let name = $("#name").val();
+                let age = parseInt($("#age").val());                //숫자 변환 하는 이유 : 저대로 쓰면 문자 취급됨
+                let year = 2024 - age;
+                    //각 입력창에 있던 내용들을 등록 버튼을 통해 전송
+
+                $("#nameView").text(name);
+                $("#ageView").text(age);
+                $("#yearView").text(year);
+                    // 입력된 정보를 화면에 표시
+                
+            });
+        });
+
+        /*
+                if (name === "" && age === "") {
+                    alert("이름과 나이를 모두 입력하세요.");
+
+                } else if (name === "") {
+                    alert("이름을 입력하세요.");
+
+                } else if (age === "") {
+                    alert("나이를 입력하세요.");
+                }
+                */
+    </script>
+
+</head>
+<body>
+    <button id = "nameInput">이름입력</button><input type = "text" id = "name"><br>
+    <button id = "ageInput">나이입력</button><input type = "text" id = "age"><br>
+    <button id = "enroll">등록</button>
+    <hr>
+    <div>
+        이름 : <b id = "nameView"></b><br>
+        나이 : <b id = "ageView"></b><br>
+        태어난 연도 : <b id = "yearView"></b>
+    </div>
+</body>
+</html>
