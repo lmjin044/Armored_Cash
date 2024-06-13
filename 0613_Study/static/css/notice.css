@@ -1,0 +1,23 @@
+*{padding : 0; margin : 0; box-sizing: border-box;}
+
+#notice_wrap{
+    padding : 50px;
+    width : 500px;
+    font-size: 20px;
+}
+
+#title{padding : 10px 0; border-bottom : 1px solid #aaa;}
+
+#content{padding-top: 10px}
+
+#list li{
+    cursor : pointer;
+    line-height: 40px;
+}
+
+#more{
+    position: absolute;
+    top : 60px;
+    right : 50px;
+    cursor: pointer;
+}

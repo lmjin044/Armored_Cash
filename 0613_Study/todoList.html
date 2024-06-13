@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘 할일</title>
+    <!-- jquery CDN-->
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<script src="./static/javascript/todo.js"></script>
+<link rel="stylesheet" href="./static/css/todo.css">
+
+</head>
+<body>
+    
+    <div id="wrap">
+        <div id="input_wrap">
+            <div class="input_box">
+                <label>할일</label>
+                <input type="text" id="work">
+            </div>
+            <div class="input_box">
+                <label>시간</label>
+                <input type="time" id="time">
+            </div>
+            <div class="input_box">
+                <label>상태</label>
+                <input type="text" id="state" placeholder="완료 또는 진행중">
+            </div>
+            <div class="input_button">
+                <button id="enroll">등록</button>
+            </div>
+        </div>
+        <div id="todo_wrap">
+            <h2 class="title">오늘의 할일</h2>
+            <div class="todoList_box">
+                <ul id="todoList">
+                    <li class="todo">할 일</li>
+                    <li class="todoTime">시간</li>
+                    <li class="todoState">상태</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
