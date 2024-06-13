@@ -1,8 +1,60 @@
-*{padding : 0; margin : 0; box-sizing: border-box;}
+/*todo.css*/
 
-#ul{list-style-type: none;}
-#input{padding-left: 30px;}
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+ul{
+    list-style-type: none;
+}
+input{ padding-left:10px }
 #wrap{
-    width: 100px;
-    margin : 0 auto;
+    width:800px;
+    position: relative;
+    margin:0 auto;
+}
+#rmfla{
+    position: absolute;
+    right:30px;
+    top:130px;
+}
+#rmfla2{
+    position: absolute;
+    left:30px;
+    top:130px;
+}
+#rmfla3{
+    position: absolute;
+    bottom:30px;
+    left:500px;
+}
+#rmfla4{
+    position: absolute;
+    right:30px;
+    top:350px;
+}
+
+
+#input_wrap{
+    display: flex;
+    position: relative;
+    padding-bottom: 20px;
+    top: 100px;
+    gap:20px;
+    border-bottom: 1px solid black;
+}
+#work{
+    background-color: rgb(240, 163, 163);
+}
+#time{
+    background-color: rgb(230, 230, 145);
+}
+#state{
+    background-color: rgb(122, 220, 122);
+}
+#todo_wrap{
+    position: relative;
+    
+    top:150px;
 }
