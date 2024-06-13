@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script 
+    src="https://code.jquery.com/jquery-3.7.1.js" 
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" 
+    crossorigin="anonymous">
+    </script>
+
+
+<script>
+/*$(function(){
+    var box1 = document.getElementsByClassName("box1");
+    console.log(typeof box1);
+    console.log(box1);  //콘솔로 살펴보면 2개의 box1을 확인할 수 있고 첫번째를 0번으로 지정했다.
+
+    box1[0].innerHTML="첫번째 div";
+    box1[1].innerHTML="두번째 div";
+
+    let box2 = document.querySelectorAll(".box2");
+        //혹은 이런 방법도 있다 이거임
+    
+    box2[0].innerHTML="세번째 div";
+    box2[1].innerHTML="네번째 div";
+
+    let box = document.getElementsByClassName("box"); //이건 클래스 명(box)로 아예 끌고 온거
+        //let box = document.querySelecorALL(".box");로도 가능
+
+    for( var i = 0; i<box.length; i++){
+        box[i].innerHTML = Math.floor(Math.random()*10);
+    }   //이렇게 하면 0~9 사이의 임의의 정수 값을 매 새로고침 할 적마다 랜덤하게 출력함
+
+});
+*/
+
+
+/*
+배열의 특징 : 
+1. 연속적으로 데이터를 지정 가능
+2. 인덱스 기준 0에서 시작
+ = 데이터를 10개 저장했으면 마지막 인덱스는 9
+3. 다수의 값을 사용 할 때 가장 다루기 쉬운 구조다.
+*/
+
+//문제 : 다음과 같은 조건을 만족하시오
+//1. num의 배열에 push를 사용해 추가로 60, 70, 80, 90, 100을 저장하고 
+//2. 반복문을 사용해 배열의 값을 차례대로 출력하시오.
+
+    let num = [10, 20, 30, 40, 50];
+   /* num.push("60");
+    num.push("70");
+    num.push("80");
+    num.push("90");
+    num.push("100");
+    */
+    
+    for( var i = 60; i <= 100; i=i+10){
+        num.push(i);
+    }
+    
+    for( var i = 0; i<num.length; i++){
+        document.write(num[i] + "<br>");
+    }
+
+//배열 2개 이상 : 두 배열의 각 자리끼리 숫자의 합을 구하기
+
+let account1 = [222, 181, 200, 187, 179];
+let account2 = [161, 145, 130, 167, 170];
+
+var small = account1. length;
+if(small > account2.length) small = account2.length;
+
+    for(var i = 0; i< small; i++){   
+
+        //1로 하든 2로 하든 상관 없음 어차피 5개 요소를 둘 다 가지고 있어서.
+        //단 1과 2에 각각 몇 개씩 있는지 모른다면 >> 데이터가 더 짧은 것 기준으로 해야 함
+            // var small = account1. length;
+            // if(small > account2.length) small = account2.length;
+        document.write("<br>" + (account1[i] + account2[i]));
+    
+
+    }
+
+
+
+    </script>
+
+</head>
+<body>
+    <div class = "box1 box"></div>
+    <div class = "box1 box"></div>
+    <div class = "box2 box"></div>
+    <div class = "box2 box"></div>
+</body>
+</html>

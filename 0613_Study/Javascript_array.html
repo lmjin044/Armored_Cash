@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+/*
+이 시점 이후로 배열을 쓸거다!
+ 변수 = 데이터를 저장하기 위한 메모리 공간( = 단일 데이터)
+ 배열 = 데이터를 저장하기 위한 '연속적인' 메모리 공간( = 다수의 데이터)
+        즉 배열 속 각각의 데이터는 변수와 동일
+
+ex)10명의 학생을 키 순서대로 나열한다면?
+    변수 사용시 : let std1 = 157, std2 = 172, std3 = 185, std4 = 192, std5 = 184
+    배열 사용시 : let tall=[157, 172, 185, 192, 184];
+                 let std=["이순신", "강감찬", "김유신"]
+
+                 혹은 이렇게도 가능 : let money = new Array();
+
+        >> 즉 일일이 변수명을 지정하지 않고 데이터만 입력해도 된다
+        >> 구성 : 배열의 이름 = []
+            ※우선순위는 2번째.(1순위는 소괄호다)
+            ※배열이 온다라는 암묵적인 신호로 대괄호[]를 사용함
+
+    일일이 데이터를 입력하지 않아도 된다
+
+    *주의 사항 : 배열은 var 사용하면 안된다 
+        = 문자 표현으로 인식되어버린다.
+        
+*/
+let tall = [157, 172, 185, 192, 184, 166, 187, 222, 168, 169];
+for( var i = 0; i < 10; i++){
+    document.write(tall[i]+"<br>");
+}//이렇게 하면 첫번째부터 맨 끝까지 1열로 나열해서 쓸 수 있다
+
+
+document.write(tall[0]);  
+document.write(tall[1]);  
+document.write(tall[2]);  
+        //배열에서는 0번이 1번째 숫자임 = 10번째 숫자를 불러내려면 9를 지정해야 함
+
+let name = [];
+
+name.push("이순신");    //push = 배열에 데이터를 추가, 저장하는 방법
+name.push("김유신");
+name.push("최영");
+name.push("이성계");
+
+name.sort();    //오름차순 정렬
+name.reverse(); //역순 정렬
+
+document.write(name);
+document.write("<br>"+name.length); //해당 배열에 몇 개의 요소가 있는지를 확인
+
+name.pop();//pop : 배열의 마지막 데이터를 제거
+document.write("<br>"+name);
+document.write("<br>" + (name.indexOf("이춘향")));  
+    //indexOf : 배열 내 입력한 데이터가 몇 번째에 있는가?
+    //없을 경우 -1, 있으면 0부터 시작
+document.write("<br>"+ name.splice(1,1));//인덱스 통해 배열을 잘라내는 방법
+document.write("<br>"+name);
+document.write("<br>"+name.slice(1));
+
+let score = [95, 89, 74];
+var sum = 0;
+for(var i = 1; i < score.length ; i++){
+        sum = sum + score[i];
+}
+document.write("총 합 : "+sum);
+
+
+    </script>
+</head>
+<body>
+    <div class = "box1"></div>
+    <div class = "box1"></div>
+    <div class = "box2"></div>
+    <div class = "box2"></div>
+</body>
+</html>
+
