@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous">
+    </script>
+
+<script>
+/*
+배열 = 데이터를 저장하기 위한 연속적인 메모리 공간
+     ☆배열 속 각각의 공간은 변수와 동일
+     ☆배열의 인덱스는 0부터 시작함
+     ☆인덱스가 1씩 증가하는 형태라 반복문이 필수
+
+    ▷배열 선언 : var은 가급적이면 자제하자. 어지간한건 let 혹은 const로 시작할 것
+    
+
+    ▷예시 : 
+    
+        let arr1 = [];              비어있는 배열을 선언함
+        let arr2 = [10, 20, 40];    데이터 3개가 저장도니 배열을 선언함
+        let arr3 = new Array();     비어있는 배열을 선언함
+        let arr4 = new Array(5);    공간은 5개를 생성하되 각 공간은 비어있다
+        let size = 10;              사이즈를 10만큼 선언
+        let arr5 = new Array(size); 사이즈를 10만큼 추가
+
+        동적배열 : 자바스크립트에서 사용, 배열 내 공간을 지정 후에도 늘이고 줄일 수 있음
+            ↔ 정적배열 : 자바에서 사용, 배열 내 공간을 지정한 후 변경할 수 없음
+
+     예시 2: 
+
+        const a = 10;               const로 직접 a를 10으로 지정했으면 a가 변경될 수 없다.
+
+        const arr6 = [10, 20, 30];  0에 10, 1에 20, 2에 30이 저장되어있다.
+        console.log(arr6);
+        arr6[1] = 50;               const로 지정이 된 것은 배열 그 자체이기 때문에 데이터 변경이 가능하다.
+        console.log(arr6);          
+        let arr7 = [1,2,3];
+        let arr8 = arr7;
+        console.log(arr8);          arr7에 저장된 데이터를 arr8로 저장시킴        
+
+    여러 개의 다수의 데이터를 한 번에 다룰 때 사용한다!
+*/
+//q. 이 중에서 가장 작은 수를 구하시오 : 
+//    let score = [89, 92, 65, 71, 78, 83, 96, 100, 73, 85];
+//    let small = score[0];                     //실제 작은 것인지는 모르지만 임의로 배정
+
+
+//q. 1부터 100중 랜덤한 값을 배열에 저장할 것.
+//   배열에 몇 개 저장할 것인지도 랜덤(단 데이터에 갯수는 10~30중 하나)
+/*
+    let score = []; //비어있는 score을 배열로 하겠다 선언
+
+    let len = Math.floor(Math.random()*21)+10;  //1)score라는 배열을 만들고 그에 저장할 데이터의 랜덤값 호출 (10부터 30까지 하나의 값이 나올 것)
+    for(var i=0; i<len; i++){                   //2)i라는 임의의 변수를 생성하여 해당 값이 1)에서 만든 len보다 작을 때까지 1씩 더하여 반복
+                                                    //(만약 i가 1부터 시작한다고 하면 len과 같거나 작은 것으로 변경할 것)
+        score.push(Math.floor(Math.random()*100)+1);//3)1에서 100의 랜덤한 값을 score 배열에 저장할 것
+
+    }
+
+    let small = score[0];  
+    for(var i=0; i<score.length; i++){        //변수명.length은 문자열의 길이를 새는 것이라 총 10이 나오고 index 상으로는 9까지 표현됨
+        if(small > score[i]) small = score[i];    //score 배열 내 데이터와 임의로 지정한 small을 비교해서 score속 데이터가 함수와 같을 때 그 데이터를 저장함
+    }
+
+    document.write("가장 작은 수 : " +small );
+    document.write("가장 작은 수는 " + (score.indexOf(small)+1) +"번째에 있다");
+
+
+    let score = [68, 79, 83, 95, 65];
+    let stdName = ["이순신", "김유신", "장영실", "한석봉", "임꺽정"];
+        //.indexOf(데이터) : 배열에서 해당 데이터가 몇 번째 인덱스에 있는지 그 값을 반환 함(없으면 -1)
+        //이순신 68, 김유신 79, 장영실 83 등 가장 점수가 높은 학생은?
+
+    let high = score[0];    
+    for(var i=0; i<score.length; i++){          //1)가장 큰 점수를 찾기
+        if(high<score[i]) high = score[i];
+    }
+    let idx = score.indexOf(high);              //2)해당 점수의 인덱스 위치 찾기
+
+    document.write("가장 점수가 높은 학생은 : " + stdName[idx]);    //3)stdName 배열에서 해당 인덱스 값과 동일한 한석봉이 도출됨
+
+//q. 위 배열을 이용해 학생의 이름을 입력하여 학생의 점수를 출력하려면?
+
+    var inputName = "장영실";                                //변수명 = 장영실   
+    let idx = stdName.indexOf(inputName);                   //학생들 이름 중 '장영실'의 인덱스 정보를 다시 변수화(이 경우 2가 도출됨)
+    document.write(inputName + " 학생 점수 : " +score[idx]); //장영실 학생의 점수를 score배열에서의 인덱스 정보로 가지고 옴
+*/
+//배열을 이용한 이미지 표현하기
+
+    let imgName = ["1.jpg", "2.jpg", "3.jpg"];
+    let i=0;
+
+    $(function(){
+/*     for(var i = 0; i<imgName.length; i++){              
+            $("#bg").attr('src', './static/image/'+imgName[0]); 
+            //src 형태로 하여 지정된 폴더에 있는 이미지 이름 중 1번(0번 인덱스)의 사진을 bg로 지정된 영역에 표시해라.
+            setTimeout(function(){
+                $("#bg").attr('src', './static/image/'+imgName[1]);
+            }, 3000);
+                //위 함수를 요약하면 3초 뒤에 1번 이미지로 변경해라
+                setTimeout(function(){
+                $("#bg").attr('src', './static/image/'+imgName[2]);
+            }, 6000);
+
+        }
+*/
+        setInterval(function(){         //3초에 한 번씩 id가 bg인 곳에 src 경로를 통해 imgName의 이름을 가진 변수들의 이미지 표시를 해라
+            $("#bg").attr('src', './static/image/'+imgName[i]);
+            i++;
+            if(i>=imgName.length)i=0;   
+            }, 3000);
+        
+        setInterval(function(){         //이미지와 텍스트 간 자동으로 변경되는 시간이 따로따로
+            $("#print").text("지금 이미지 인덱스 : " +i );
+        }, 2000);
+    
+    
+    
+    });
+
+
+
+
+
+
+//자바스크립트에서 반복문을 사용하면 그 과정은 표시가 안 됨
+//단 시간과 관련된 구문을 사용하면 가능하긴 함 : 
+    //setInteval(실행코드, 시간) : 지정 된 시간 간격으로 실행 
+        //(설정에 따라 따로따로 가능 = 쓰레드의 개념 : 1개의 프로그램으로 여러 가지의 명령을 개별적으로 수행)
+    //setTimeout(실행코드, 시간) : 지정 된 시간 이후에 실행되도록 하는 것
+
+
+
+</script>
+<style>
+    #bg{width: 500px;}
+</style>
+</head>
+<body>
+    <img id = "bg">
+    <div id = "print"></div>
+</body>
+</html>

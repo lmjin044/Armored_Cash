@@ -1,0 +1,45 @@
+*{padding: 0; margin : 0; box-sizing: border-box;}
+table{border-collapse: collapse;}
+
+#control{
+    position : fixed;
+    left : 50px;
+    top : 100px;
+    font-size: 20px;
+    padding : 15px;
+    border : 1px solid #aaa;
+    border-radius: 10px;
+}
+
+#start{
+    background: lightblue;
+    color : white;
+    padding : 7px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#screen{
+    width : 200px;
+    display : none;
+}
+
+#wrap{
+    width : 800px;
+    margin : 100px auto;
+}
+
+
+#wrap .boardBox{width : 100%;}
+
+
+#wrap .boardBox .num{
+    border : 1px solid black;
+    width : 20%;
+    height : 160px;
+    font-size: 30px;
+    text-align: center;
+}
+
+#wrap .boardBox .num:hover{background-color: #ddd;}
+

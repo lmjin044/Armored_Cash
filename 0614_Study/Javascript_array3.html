@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous">
+</script>
+
+<script>
+/*
+    let word = ["한강", "금강", "낙동강", "대전", "부산", "광주", "세종"];
+        //단어를 배열에 저장하려고 할 때 존재하는 단어면 저장하지 않고 없는 단어만 저장한다.
+
+    function save(){
+        var text = $("#str").val();     //str 항목 ( = 내가 직접 입력할 곳)의 데이터 정보를 text로 가져옴
+        if(word.indexOf(text) == -1 ){  //=만약 입력한 항목의 인덱스값이 -1(=없다)일 경우
+            word.push(text);            //=text에 저장해라
+            $("#error").text('');
+        }else{                          //= 있으면
+            $("#error").text("중복된 단어이니 다시 입력하세요");    //= error에 저장된 양식을 불러와 다음 텍스트에 입혀라.
+        }
+
+    }
+    $("#print").text(word);
+*/
+    let board = []; //빈 배열 선언
+    $(function(){
+        init();     //배열에 데이터를 저장(초기화 작업시 init(ial)사용)
+        view();     //div#board에 배열값을 출력
+
+    });
+
+    function init(){    
+        for(var i=1; 1<=25; i++)  {                     //총 25개를 배열에 저장해라
+            var tmp = Math.floor(Math.random()*50)+1;   //1부터 50개 중에서
+            board.push(tmp);                           //
+        }            
+    }
+
+    function view(){
+        let num = '';
+          //5줄로 표현하기
+        for(var row = 0; row<5; row++){                //줄 표현(row<5인 이유 : 0~4까지 해서 5를 셈)
+            num += '<p>';                              // += ???? : ※참조
+            for(var col=0; col<5; col++){              //칸 표현
+                num +='<span>'+board[row*5+col] +"</span>";
+
+            }
+            num += '<p>';
+        }
+        
+        $("#board").html(board);
+    }
+/*
+※연산자 표기법
+중위표기 = a+b
+전위표기 = +ab
+후위표기 = ab+ 
+ex) a+=10 : a와 10을 더하고 그것을 a에 저장해라
+*/
+
+</script>
+<style>
+    span{display :inline-block; width: 50px;}
+</style>
+</head>
+<body>
+    <div id = "board">
+
+
+
+    </div>
+    <!--
+    <input type = "text" id="str">
+    <p id = "error" style = "font-size:10px; color: red;"></p>
+    <button onclick = "save">저장</button>
+    <div id="print"></div>
+    -->
+</body>
+</html>

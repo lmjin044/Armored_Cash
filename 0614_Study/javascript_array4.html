@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous">
+</script>
+
+<script>
+    let board = []; //빈 배열 선언
+    $(function(){
+        init();     //배열에 데이터를 저장(초기화 작업시 init(ial)사용)
+        view();     //div#board에 배열값을 출력
+
+    });
+
+    function init(){    
+        while(board.length!=25) {
+            var tmp = Math.floor(Math.random() * 50) + 1;
+            if(board.indexOf(tmp) == -1);
+            board.push(tmp)
+        }
+
+/*
+        for(var i=1; i<=25; i++)  {                      //총 25개를 배열에 저장해라
+            var tmp = Math.floor(Math.random() * 50) + 1;//1부터 50개 중에서
+            if (board.includes(tmp)) {
+                i--; // 중복된 숫자가 나오면 다시 시도하기 위해 인덱스를 감소시킴
+            } else {
+                board.push(tmp);
+            }                 
+        } 
+            
+        */
+    }
+
+    function view(){
+        let num = '';
+          //5줄로 표현하기
+        for(var row = 0; row<5; row++){                //줄 표현(row<5인 이유 : 0~4까지 해서 5를 셈)
+            num += '<p>';                              // += ???? : ※참조
+            for(var col=0; col<5; col++){              //칸 표현
+                num +='<span>'+board[row*5+col] +"</span>";
+
+            }
+            num += '</p>';
+        }
+        
+        $("#board").html(num);
+    }
+/*
+※연산자 표기법
+중위표기 = a+b
+전위표기 = +ab
+후위표기 = ab+ 
+ex) a+=10 : a와 10을 더하고 그것을 a에 저장해라
+*/
+    
+</script>
+<style>
+    span{display :inline-block; width: 50px;}
+</style>
+</head>
+<body>
+    <div id = "board"></div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>빙고</title>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src ="./static/javascript/bingo.js"></script>
+    <link rel = "stylesheet" href = "./static/css/bingo.css">
+
+</head>
+<body>
+    <div id ="control">
+        <div id = "start">빙고시작 <i class="bi bi-controller"></i></div> 
+        <div id = "screen">
+            완성빙고 : <b id = "ok"></b> <br>
+            플레이타임 : <b id = "playTime"></b> <i class="bi bi-hourglass-split"></i>
+        </div>
+    </div>
+    <div id = "wrap">
+        <table class = "boardBox">
+            <tr>
+                <td class="num"></td>
+                <td class="num"></td>
+                <td class="num"></td>
+                <td class="num"></td>
+                <td class="num"></td>
+            </tr>
+            <tr>
+                <td class="num"></td>
+                <td class="num"></td>
+                <td class="num"></td>
+                <td class="num"></td>
+                <td class="num"></td>
+            </tr>
+            <tr>
+                <td class="num"></td>
+                <td class="num"></td>
+                <td class="num"></td>
+                <td class="num"></td>
+                <td class="num"></td>
+            </tr>
+            <tr>
+                <td class="num"></td>
+                <td class="num"></td>
+                <td class="num"></td>
+                <td class="num"></td>
+                <td class="num"></td>
+            </tr>
+            <tr>
+                <td class="num"></td>
+                <td class="num"></td>
+                <td class="num"></td>
+                <td class="num"></td>
+                <td class="num"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+
+<!--과제 :
+빙고 체크 함수를 완성할 것 :
+    1줄이면 1, 2줄이면 2로.
+    대각선도 포함처리 해야 하고 빙고가 5개 되면 완료 되도록
+
+    응용ver. 1개 더 만들어서 컴퓨터랑 1:1 컴뿌ㄱㄱ
+-->
