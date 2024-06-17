@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous">
+</script>
+
+<script>
+    const board = [
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],    
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+            //가로 기준 인덱스 끝은 20, 세로는 13
+    ];
+
+    $(function(){
+        let out="<table>";
+        for( var i=0; i<board.length; i++) {
+            out += "<tr>";
+
+            for(var k=0; k< board[i].length; k++) {
+                var tdClass = "wall"
+
+                if(board[i][k] == 0) tdClass = "blank";
+                if(board[i][k] == 2) {
+                    y=i;
+                    x=k;
+                    tdClass = "me";
+                }
+                out += `<td class="${tdClass}"></td>`;
+            }
+            out += "</tr>";
+        }
+        out += "</table>";
+            //id 태그 안에 테이블 태그가 들어가게 됨
+        $("#wrap").html(out);
+
+    });
+
+    $(document).keyup(function(){
+        var key = event.keyCode;
+        switch(key){
+            case '87' : 
+                board[y][x] = 0;
+                $("td").eq(y*21+x).removeClass("me");
+                $("td").eq(y*21+x).addClass("blank");
+                y--;
+                board[y][x]=2;
+                $("td").eq(y*21+x).removeClass("blank");
+                $("td").eq(y*21+x).addClass("me");
+                break;
+
+            case '65' :
+
+                break;
+
+            case '83' :
+
+                break;
+                
+            case '68' :
+
+                break;
+        }
+    });
+//현재 위치를 blank, 이동할 위치를 me로 변경
+
+
+//과제 : 나머지 세개의 방향을 완성시킬 것 + 완성시킨 w키가 검은 벽을 만나면 이동하지 못하도록 해야 함
+//      만약 완성 했으면 최대한 줄여볼 것
+
+
+</script>
+
+<style>
+    table{border-collapse: collapse;};
+
+    td{
+        width : 30px; height : 30px;
+        border : 1px solid black;
+    }
+
+    .wall{background: black;}
+    .me{background: red;}
+    .blank{background: white;}
+</style>
+</head>
+<body>
+    <div id = "wrap"></div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous">
+    </script>
+
+<script>
+/*
+배열 : 배열 생성, 배열 내 저장된 값은? 배열의 사용(출력과 계산)
+    var arr = [10, 20, 30, 40, 50];
+    for(var i = 0; i<arr.length; i++){
+        $("#show").append("<p>" + arr[i] + "</p>");
+        }
+
+
+오늘의 배울 것 : 태그에 직접적인 데이터를 넣지 않고 배열을 통해 사용하는 법
+*/
+/*
+const name = ["김유신", "이순신", "장보고", "임꺽정", " 홍길동", "최영", "최무선", "정약용"];
+    //jQuery 없이 사용하는 요런 양식은 '바닐라(=순수)자바스크립트'
+    //대괄호로 인덱스를 표현해야 함
+
+
+$(function(){           //=window.onload : li태그가 완성 되면 브라우저에 표시될 것
+    
+    let item = $(".item")
+        //=document.getElementsByClassName("item")               
+    console.log(item.length);
+    for( var i = 0; i<item.length; i++){
+        //name 배열의 값을 무작위로 li 태그에 출력하는 방법?
+        var idx = Math.floor(Math.random()*name.length);
+            //배열의 인덱스는 어차피 0에서 시작하기 때문에 굳이 +1이 필요없다.
+        item.eq(i).text(name[idx]);
+            //.eq :jQuery에서 태그를 선택 한 경우, 인덱스 표현할 때 사용(=item[i])         
+    }
+});
+
+let num = new Array(26);
+    //=26개의 빈 공간을 생성함  
+let word = "i like tomato";
+for(var i = 0; i<num.length; i++)
+    num[i]=0;   // = num 배열을 0으로 초기화
+
+    //console.log("a".charCodeAt(0));
+        //"문자".carCodeAt(0) = 소문자 a를 아스키 코드 상에서 어떤 글자로 표현하는지 확인
+        //0이 붙은건 몇 번째 인덱스인지 묻는 위치
+
+for(var i = 0; i<word.length;i++){  //i like tomato를 구성하는 각 알파벳의 수를 알아보자
+    if(word.charCodeAt(i) >= 97 && word.charCodeAt(i)<=122)
+    num[word.charCodeAt(i)-97]++;
+    //
+}
+
+console.log(num);
+
+//한번 jQuery 양식으로 작성했으면 이후로도 쭉 같은 양식을 사용해야 함
+문자열로 이루어진 배열이라면 var를 쓰지 마시오(숫자면 상관 ㄴ)
+    : 문자열로 되어있다면 문자열 자체가 배열이라 배열 속 배열 같은 그런 모양이 됨
+      뭔 소리냐? 
+        문제점1)var가 재선언이 사용가능해서 그럼(let은 해당 제어문{}내에서만 가능)
+                = 배열의 주소를 '첫번째 문자열의 주소'로 지정해버리는 경우의 발생
+        문제점2)a라는 문자만 써도 자바스크립트에선 a(+null)로 인식해버림
+ 
+  */
+    
+    let score = [70, 30, 40, 80, 0, 10, 50, 90, 60, 100];
+    //let rank = [10, 8, 4, 1, 9, 7, 3, 2, 6, 5];
+    let stdName = ["이순신", "강감찬", "장보고", "최무선", "문익점", "장영실", "정도전", "이성계", "이방원", "계백"];
+        //rank는 숫자와 관계없이 맨 앞에 있는 것이 1등이다.
+    
+    let temp=[];
+    for(var i = 0; i<score.length; i++){
+        temp.push(score[i]);
+    }
+    temp.sort((a,b) => b-a);          //역정렬에 쓰이는 구조임
+
+        let rank=[];
+    for(var i = 0; i <= 9; i++){
+        for(var k=0; k<score.length; k++){
+            rank.push(score.indexOf(temp[i]));
+        }
+
+    }
+
+    console.log(rank);
+    console.log("1등 : " + stdName[rank[0]]);
+
+</script>
+
+</head>
+<body>
+    <ul id = "list">
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+    </ul>
+
+</body>
+</html>

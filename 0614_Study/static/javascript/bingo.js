@@ -110,9 +110,9 @@ function start() {                   //2)빙고 게임을 위한 숫자를 배�
 
 function init(){                     //3.1)저장할 25개 랜덤 숫자 형성하기
     while(bingo.length!=25) {
-        var tmp = Math.floor(Math.random() * 50) + 1;
-        if(bingo.indexOf(tmp) == -1);
-        bingo.push(tmp)
+        var tmp = Math.floor(Math.random() * 100) + 1;
+        if(bingo.indexOf(tmp) == -1)
+             bingo.push(tmp)
     }
 }
 

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous">
+    </script>
+<script>
+/*q. 학생 성적을 저장하여 평균을 냈다.
+ 단 이때 각 반의 평균 성적을 구하여라 라고 한다면?
+
+    let stdScore = [50, 77, 88, 99,34 ];
+    let stdScore2 = [];
+    let stdScore3 = [];
+
+    반이 늘어나면 늘어날 수록 기존 방식으로는 배열도 길어짐 = 1차원 배열
+     >> 2차원 배열 : 배열의 공간 안에 데이터가 들어가지 않음
+                    또 다른 1차원 배열에 데이터를 넣고 그 주소가 2차원 배열에 들어감
+    이러한 구조가 반복 될수록 n차원 배열이 됨
+    그러나 최대 4차원을 넘기지 않음 : 메모리가 어마어마하게 필요해서
+*/
+/*
+let stdScore = [
+    [50, 77, 88, 99, 40],
+    [78, 67, 56, 45, 32],
+    [98, 87, 76, 65, 54]
+];
+
+console.log(stdScore[0][1]);
+console.log(stdScore[1]);
+
+
+for(var i = 0; i<3; i++){
+    //가장 바깥의 대괄호(3개의 반)의 인덱스 값을 구하는 범위
+    for(var k=0; k<5; k++){
+        //두번째 대괄호(5개의 성적)의 인덱스 값을 구하는 범위
+        document.write(stdScore[i][k]+"&nbsp;");
+        //nbsp : 띄어쓰기는 하되 줄바꿈을 하지 마라
+    }
+}
+
+
+
+//1~4층 규모의 주차정 건물에 각 층별 주차된 차량 수와 잔여 주차구역을 표시하고자 한다면?
+
+let pk =[
+    new Array(15).fill(0), new Array(15).fill(0), new Array(15).fill(0), new Array(20).fill(0)
+        //new Array로 생긴 공간을 fill(숫자)만큼 채울 수 있다.
+];
+
+for(var i=0; i<pk.length; i++){
+    for(var k=0; k<pk[i].length; k++){
+        document.write(pk[i][k]+"&nbsp;")
+    }
+    document.write("<br>");
+}*/
+
+
+//다음 2차원 배열에서 각 행의 총합을 구하여 출력하기
+//각 행은 num[0], num[1], num[2]
+
+let num = [ [10, 20, 30, 40], [1, 4, 5], [23, 45, 56, 3, 9, 5] ]
+let numTotal = [0,0,0];
+
+
+for(var i = 0; i<num.length; i++){
+    for(var k=0; k<num[i].length; k++){
+        numTotal[i] += num[i][k];
+    }
+}
+
+
+for(var i=0; i<numTotal.length; i++){
+    document.write(numTotal[i]+"<br>");
+}
+</script>
+</head>
+<body>
+    
+</body>
+</html>
