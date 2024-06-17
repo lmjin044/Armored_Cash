@@ -56,7 +56,7 @@
     $(document).keyup(function(){
         var key = event.keyCode;
         switch(key){
-            case '87' : 
+            case 87 : 
                 board[y][x] = 0;
                 $("td").eq(y*21+x).removeClass("me");
                 $("td").eq(y*21+x).addClass("blank");
@@ -66,15 +66,15 @@
                 $("td").eq(y*21+x).addClass("me");
                 break;
 
-            case '65' :
+            case 65 :
 
                 break;
 
-            case '83' :
+            case 83 :
 
                 break;
-                
-            case '68' :
+
+            case 68 :
 
                 break;
         }
@@ -89,7 +89,7 @@
 </script>
 
 <style>
-    table{border-collapse: collapse;};
+    table{border-collapse: collapse;}
 
     td{
         width : 30px; height : 30px;
