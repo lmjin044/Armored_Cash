@@ -57,28 +57,34 @@
         var key = event.keyCode;
         switch(key){
             case 87 : 
-                board[y][x] = 0;
-                $("td").eq(y*21+x).removeClass("me");
-                $("td").eq(y*21+x).addClass("blank");
-                y--;
-                board[y][x]=2;
-                $("td").eq(y*21+x).removeClass("blank");
-                $("td").eq(y*21+x).addClass("me");
+                movePlayer(-1, 0);
                 break;
 
             case 65 :
-
+                movePlayer(0, -1);
                 break;
 
             case 83 :
-
+                movePlayer(1, 0);
                 break;
 
             case 68 :
-
+                movePlayer(0, 1);
                 break;
         }
     });
+
+    function movePlayer(dy, dx) {
+            if (board[y + dy][x + dx] != 1) { 
+                board[y][x] = 0;
+                $("td").eq(y * 21 + x).removeClass("me").addClass("blank");
+                y += dy;
+                x += dx;
+                board[y][x] = 2;
+                $("td").eq(y * 21 + x).removeClass("blank").addClass("me");
+            }
+        }
+
 //현재 위치를 blank, 이동할 위치를 me로 변경
 
 
