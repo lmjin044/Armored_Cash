@@ -53,28 +53,54 @@
 
     });
 
-    $(document).keyup(function(){
+    $(document).keyup(function(){   //혹은 아래 주석처럼 해도 됨
         var key = event.keyCode;
         switch(key){
-            case 87 : 
-                movePlayer(-1, 0);
+                /*
+                var stepx = x; var stepy = y;      = 이동 위치 표현 변수
+                
+                board[y][x] = 0;
+                $("td").eq(y*21+x).addClass("me"); //현재 위치를 blank, 이동할 위치를 me로 변경
+                $("td").eq(y*21+x).removeClass("blank");             
+                */
+
+
+            case 87 : //= w
+                movePlayer(-1, 0);  
+                    /*= stepy--;*/  
+                break;
+                    
+            case 65 : // = a
+                movePlayer(0, -1); 
+                    /*= stepx--;*/ 
                 break;
 
-            case 65 :
-                movePlayer(0, -1);
+            case 83 : // = s
+                movePlayer(1, 0);  
+                    /*= stepy++;*/ 
                 break;
 
-            case 83 :
-                movePlayer(1, 0);
-                break;
+            case 68 : // =d
+                movePlayer(0, 1);  
+                    /*= stepx++;*/ 
 
-            case 68 :
-                movePlayer(0, 1);
                 break;
         }
+                /*
+                if(board[stepy][stepx] != 1){
+                    x=stepx;
+                    y=stepy;
+                }   = 이동했을 때 벽(1)에 닿지 않는다면 이동해라 라는 공통 조건문이 있어서 스위치 함수에는 빼주는거다
+
+
+                board[y][x] = 2;
+                $("td").eq(y*21+x).removeClass("blank");
+                $("td").eq(y*21+x).addClass("me");
+                */
+
     });
 
-    function movePlayer(dy, dx) {
+    function movePlayer(dy, dx) {   //벽을 만났을 때 움직이지 않게 하는 방법
             if (board[y + dy][x + dx] != 1) { 
                 board[y][x] = 0;
                 $("td").eq(y * 21 + x).removeClass("me").addClass("blank");
@@ -85,7 +111,7 @@
             }
         }
 
-//현재 위치를 blank, 이동할 위치를 me로 변경
+
 
 
 //과제 : 나머지 세개의 방향을 완성시킬 것 + 완성시킨 w키가 검은 벽을 만나면 이동하지 못하도록 해야 함
