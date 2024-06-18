@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous">
+    </script>
+<script src ="./static/javascript/rps.js"></script>
+<link rel="stylesheet" href="./static/css/rps.css">
+</head>
+<body>
+    <!--오늘의 목표 : 이미지를 클릭하여 컴퓨터와 가위바위보 하기-->
+    <div id ="vs"> <img src ="./static/image/vs.jpg" alt=""> </div>
+    <div id = "buttonWrap">
+        <button id = "game">시작</button>
+        <button id = "record">전적</button>
+
+    </div>
+    <div id = "wrap">
+        <div id = "comArea">
+            <div class ="rpsImg">
+                <img id = "comImg">
+            </div>
+        </div>
+
+        <div id = "userArea">
+            <div class = "rpsImg">
+                <div class = "userImg"><img src = "./static/image/scissors.png" alt=""></div>
+                <div class = "userImg"><img src = "./static/image/rock.png" alt=""></div>
+                <div class = "userImg"><img src = "./static/image/paper.png" alt=""></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id = "modal">
+        <div id="modalBackground"></div>
+        <div id="modalData" >
+            <table id ="dataTable">
+                <tr>
+                    <th class ="user">유저</th>
+                    <th class ="com">컴퓨터</th>
+                    <th class ="result">결과</th>
+                </tr>
+                <tbody id ="data"></tbody>
+            </table>
+        </div>
+
+
+    </div>
+    
+</body>
+</html>

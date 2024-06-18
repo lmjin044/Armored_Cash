@@ -1,0 +1,157 @@
+
+    #vs{
+        position : absolute;
+        left : 50%;
+        top: 50%;
+        transform:translate(-50%,-50%);
+        width:250px;
+        height:250px;
+    }
+
+*{box-sizing: border-box; width:100%;}
+body{margin: 0;}
+#buttonWrap{
+    position : fixed;
+    z-index : 50; 
+     /*화면의 가장 앞에 나오도록 하는 구문(기본값=1)*/
+    left : 50%;
+    padding-top: 30px;
+    transform: translateX(-50%);
+    width: 200px;
+    display :flex;
+    column-gap: 5px;
+    justify-content: center;
+}
+
+#buttonWrap button{
+    width:150px;
+    border :0;
+    font-size: 20px;
+    border-radius: 7px;
+    padding:7px 0;
+}
+
+#game{
+    background: lightblue
+}
+
+#record{
+    background: lightcyan;
+}
+
+#wrap{
+    background: #eee;
+    height : 100vh; /*vh = 브라우저 화면 기준으로 꽉채우는 방법*/
+    display : flex;
+    min-width:500px;
+}
+
+#wrap .area{
+    padding:10%;
+    position:relative;
+}
+
+#wrap .area .rpsImg{
+    width : 100%
+}
+
+#comArea{
+    display : flex;
+    align-items: center;
+}
+
+#userArea{
+    padding:5%;
+}
+
+#userArea .rpsImg{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#userArea .userImg{
+    width:50%;
+    padding : 10px;
+    border-radius: 100%;
+}
+
+#userArea .userImg :hover{
+    border : 2px solid red;
+    border-radius: 100%;
+}
+
+#comImg{width : 75%};
+
+.result{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:200px;
+    background-color: white;
+    border-radius: 10px;
+    font-size:100px;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color:black;
+}
+
+/*모달 스타일*/
+#modal{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    top:0; left:0;
+    z-index : 101;
+}
+
+#modalBackground{
+    position:relative;
+    width : 100%;
+    height: 100vh;
+    background: #999;
+    opacity: 0.75;
+}
+
+#modalData{
+    position : absolute;
+    width:500px;
+    padding: 15px;
+    background: #ffe;
+    top:100px; left:50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    max-height: 600px;
+    overflow-y: scroll;
+}
+
+#dataTable{
+    width:100%;
+    border-collapse: collapse;
+}
+
+.user{width : 35%;}
+.com{width : 35%;}
+.outcome{width : 35%;}
+
+#data td{
+    line-height :40px;
+    text-align: center;
+    border-top:1px solid #aaa;
+}
+
+#data td img{
+    display: block;
+    height: 35px;
+    width: 35px;
+    margin: 0 auto;
+}
+
+/*미디어쿼리 스타일*/
+@media screen and (min-width : 1450px) {
+    #userArea .userImg{
+        width : 30%;
+    }
+}
+    /*1450px 이상 넘어가면 가위바위보 아이콘 사이즈를 강제로 조정*/
