@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+
+    let student = {name:"이순신", age :19, tall :172};
+    document.write(student.name);
+
+    //이렇게 해도 막상 공통규칙만 통용되는 서버에선 안 먹힘
+    //그럴때 쓰는게 JSON : JavaScriptObjectNotation 
+    //= 서버에서 클라이언트로 데이터를 보낼때 사용하는 양식
+        //JSON.parse : 문자열을 자바스크립트 객체로 변환
+        //JSON.stringify : 자바스크립트 객체를 문자열로 변환
+/*
+    let str = JSON.stringify(student);
+    document.write("<br>"+str);
+        //이걸 그대로 출력하면 {"name":"이순신","age":19,"tall":172} 이거 자체가 문자열 취급되어 나옴
+
+    let std = JSON.parse(str);
+    document.write("<br>"+std);
+        //이걸 출력하면 [object Object]가 나옴.
+        //더욱이 json 양식을 쓰면 .name 등이 안 먹힘
+        //이때 쓰는게 json파일
+        //.json 파일을 형성 : 사실상 VS Code로 만드는 txt파일
+        //객체를 여러개 만들 때는 가장 바깥에 []로 감싸고 {}사이에 ,로 구분을 해줘야 함.
+        
+        //xml : json 파일을 가져옴
+*/
+        let std='';
+        const xml = new XMLHttpRequest();
+            //자바스크립트에서 XML을 가져오는 기능
+            xml.onload = function(){
+                var sgg = JSON.parse( this.responseText);
+                view(sgg);
+
+             /*       
+                document.write( std.name );
+                document.write( std.age );
+                document.write( std.tall);
+                */
+            };
+            //파일이 열려야 작동하도록 하도록 요구하기
+            
+            xml.open("GET", "sigu.json");
+            //xml.open( "GET" ,"가지고 올 주소");
+                //GET과 HOST 방식 중 하나로 가지고 온다
+                //GET : 가져올 때 그대로 가져와서 속도가 빠름
+                //HOST : 보내고 받는 쪽에서 각각 변환해 처리하는 속도가 느림 
+            xml.send(); 
+            //: 반대로 보낼(출력할)떄 이렇게(이거 없음 화면에 표시 안 됨)
+        /*
+        function view(std){
+            for(var i=0; i<std.length; i++){
+                //if(std[i].age == 19){           
+                    //만약 19살인 학생만 출력하고자 한다면 이렇게 if 구문 사용하면됨
+                if(std[i].name.indexOf("김") == 0){            
+                    //만약 특정 성씨를 가진 학생만 출력하고자 한다면
+                    //"만약 std 배열 중 이름 인덱스의 0번자리가 '김'이면 출력해라
+                document.write(std[i].name+ " " +std[i].age + " "+std[i].tall+"<br>");
+                }
+            }
+        }
+        */
+
+        //대전 광역시 중구의 광역시 코드, 시군구 코드 출력
+
+        function view(sgg){
+            for(var i=0; i<sgg.length; i++){
+                if(sgg[i].법정동명.indexOf("대전광역시") != -1){
+                    if(sgg[i].법정동명.indexOf("중구") != -1){
+                        document.write(sgg[i].광역시도코드+ " / " +sgg[i].시군구코드+"<br>");
+                    }
+                }
+            }
+        }
+        //!= -1 : '해당 인덱스가 있다면' 의 의미!
+        //찾고자 하는 데이터가 정확히 어떤 구성인지 알면 if문을 한번만 써도 되지만
+        //대전 광역시 중구 이 꼬라지면 if구문을 세번은 써야 함.
+
+        
+
+</script>
+
+
+
+</head>
+<body>
+    
+</body>
+</html>
+
