@@ -1,3 +1,32 @@
-https://www.w3schools.com/
+https://www.w3schools.com/ >>코딩 연습 할 수 있는 사이트!!!
 
-코딩 연습 할 수 있는 사이트!!!
+\\192.168.0.68 >> 과제 공용폴더
+
+https://loremflickr.com/ >>랜덤 이미지 사이트
+https://pixabay.com/ko/
+
+
+jquery : 자바스크립트 라이브러리 사이트 / 복잡한 것을 간단하게 축약 가능
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous">
+    </script>
+
+
+아이콘 같은것도 이런데서 찾아볼 수 있다 : 
+https://icons.getbootstrap.com/
+※그냥 가져다 놓는다고 쓰는건 아님 j쿼리 밑에다 이거 복사해야 함
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+저걸 먼저 헤드태그에 복사했으면 바디태그에 붙여놓으면 보임
+
+
+전문적으로 아이콘만 있는 곳도 있음ㅇㅇ
+:https://fontawesome.com/
+
+무료 이미지 사이트: freepik.com(영어로 검색)
+유효성 검사 사이트 : w3c markup(validator.w3.org)
+ *단 단순 오타는 찾을 수 있어도 수치 입력이 잘못 된 경우에는 안 나와
+
+
+JSON 이용할 때 쓰면 좋은 거 : Postman 프로그램
