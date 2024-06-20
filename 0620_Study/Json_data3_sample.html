@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous">
+</script>
+<script>
+$.getJSON("폭염.json", function(data){
+    //jQuery로 json을 불러올 때는 이렇게 하는게 더 빠르다. 
+    show(data.폭염정보);
+});
+        /*거의 여기까지를 이렇게 축약가능
+        =const xml = new XMLHttpRequest();
+            xml.onload=function(){
+            var weather = this.responseText;
+            weather = JSON.parse(weather);
+        */
+
+function show(data){
+    for(var i = 0; i<data.length; i++){
+        $("#list").append(`
+            <li>${data[i].연도별}</li>
+            <li>${data[i]['서울(일)']}</li>
+            <li>${data[i]['강릉(일)']}</li>
+            <li>${data[i]['대전(일)']}</li>
+            <li>${data[i]['대구(일)']}</li>
+            <li>${data[i]['광주(일)']}</li>
+            <li>${data[i]['부산(일)']}</li>
+            <li>${data[i]['전국일평균(일)']}</li>             
+        `);
+    }
+}
+   
+    $(function(){
+        $("#day").on('keyup',heatFilter);
+            //input 태그를 키보드로 입력할 경우
+        $("#day").on('change', heatFilter);
+            //input 태그의 업다운 버튼 클릭하여 변경시
+            //keyup~down,press 외에도 change 등이 있다.
+            //change : 요소 변경이 끝나면 발생하는 이벤트.
+        $("#location").on('change', heatFilter);
+            //셀렉트 태그 값 선택시
+
+        $("#more").on('click',heatFilter);
+            //이상 버튼 클릭시
+        $("#less").on('click',heatFilter);
+            //이하 버튼 클릭시
+    });
+
+    function moreFunc(a,b){     //이상 버튼 클릭시 동작
+        return a>=b;
+    }
+
+    function lessFunc(a,b){     //이하 버튼 클릭시 동작
+        return a<=b;
+    }
+
+    function heatFilter(){
+        var func = moreFunc;
+        if($(this).text ==="이하")func = lessFunc;
+
+
+        var value= $("#day").val();
+        var loc = $("#location").val();
+        if( value  != 0 ){
+            let li = $("#list li");
+            loc = Number(loc);  // 서울 선택시 loc에는 2 저장, 대전 선택시 loc에는 4 저장
+            for( var i=loc-1; i< li.length; i= i + 8){
+
+
+                if( func( Number( li.eq(i).text() ) != Number(value) ) ){
+
+                    for( var k= i-(loc-1); k <= i+8-loc; k++){ // 선택한 지역이 조건에 맞지않으면
+                        li.eq(k).toggle(false);                  // 해당줄의 전체 li태그 감추기
+                    }
+                    
+                }else {
+                    for( var k= i-(loc-1); k <= i+8-loc; k++){ 
+                        li.eq(k).toggle(true);                  
+                    }
+                }
+            }
+        }
+    }
+
+        /*
+        
+        $("#list li").filter(function(){
+            $(this).toggle( $(this).text().indexOf(value)!=-1);
+        });
+*/
+        //이러면 마우스로 클릭하는 n일 이상 이 부분에 검색되는 숫자가 있는 데이터만 공개
+  
+
+
+
+</script>
+
+
+<style>
+h3{height: 40px; border-bottom: 1px solid #aaa;}
+h3 b{font-size: 20px; display: inline-block; width : 100px; text-align: center;}
+#list{display: flex; flex-wrap: wrap; width: 800px; padding : 0; margin : 0; list-style: none;}
+#list>li{
+    width :100px; text-align: center; line-height: 40px;}
+
+
+
+</style>
+</head>
+<body>
+    <div id="filter">
+        <select id="location">
+            <option value="0">전국</option>
+            <option value="2">서울</option>
+            <option value="3">강릉</option>
+            <option value="4">대전</option>
+            <option value="5">대구</option>
+            <option value="6">광주</option>
+            <option value="7">부산</option>
+        </select>
+        <input type="number" id="day" value="0" style="width:40px; padding-left:10px;">일
+        <button id="more">이상</button>
+        <button id="less">이하</button>
+    </div>
+
+    <h3><b>연도별</b><b>서울</b><b>강릉</b><b>대전</b><b>대구</b><b>광주</b><b>부산</b><b>전국평균</b></h3>
+    <ul id="list"></ul>
+
+</body>
+</html>
