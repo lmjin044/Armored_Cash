@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous">
+</script>
+<script>
+$(function(){
+    const xml = new XMLHttpRequest();
+    xml.onload=function(){
+        var weather = this.responseText;
+        weather = JSON.parse(weather);
+        output(weather.폭염정보);
+    }
+
+    xml.open('GET','폭염.json');
+    xml.send();
+
+    $("#search").on('keyup', search);
+
+});
+
+function output(weather){
+    for(var i = 0; i<weather.length; i++){
+        $("#dataField").append(`
+            <tr>
+                <td>${weather[i].연도별}</td>
+                <td>${weather[i]['서울(일)']}</td>
+                <td>${weather[i]['강릉(일)']}</td>
+                <td>${weather[i]['대전(일)']}</td>
+                <td>${weather[i]['대구(일)']}</td>
+                <td>${weather[i]['광주(일)']}</td>
+                <td>${weather[i]['부산(일)']}</td>
+                <td>${weather[i]['전국일평균(일)']}</td>            
+            </tr>        
+        `)
+    }
+};
+
+function search(){
+    var value = $(this).val();
+    $("#dataField tr").filter(function(){
+        $(this).toggle($(this).text().indexOf(value) != -1);
+    });
+}
+
+
+
+
+</script>
+<style>
+    #wrap{
+        width : 1000px;
+        margin : 50px auto;
+    }
+
+    .inputBox{padding : 10px 0;}
+    #search{
+        width:300px;
+        font-size:20px;
+        padding : 10px;
+        border : 1px solid #ddd;
+        border-radius: 10px;
+    }
+
+    #dataList{padding : 10px 0; border-top : 2px solid #bbb;}
+    #dataTable{width : 100%; border-collapse: collapse;}
+
+    .연도별{width : 20%;}
+    .서울일{width : 10%;}
+    .강릉일{width : 10%;}
+    .대전일{width : 10%;}
+    .대구일{width : 10%;}
+    .광주일{width : 10%;}
+    .부산일{width : 10%;}
+    .전국일평균일{width : 20%;}
+
+    
+
+
+</style>
+<body>
+    <h2>폭염관련 안내</h2>
+    
+    <div id ="wrap">
+        <div class = "inputBox">
+            <input type ="text" id="search" placeholder="검색어를 입력하세요.">
+        </div>
+
+        <div id = "dataList">
+            <table id ="dataTable">
+                <thead class = "dataHead">
+                    <tr>
+                    
+                        <th class = "연도별">연도별</th>
+                        <th class = "서울일">서울(일)</th>
+                        <th class = "강릉일">강릉(일)</th>
+                        <th class = "대전일">대전(일)</th>
+                        <th class = "대구일">대구(일)</th>
+                        <th class = "광주일">광주(일)</th>
+                        <th class = "부산일">부산(일)</th>
+                        <th class = "전국일평균일">전국일평균(일)</th>
+
+                    </tr>
+                </thead>
+                <tbody id = "dataField"></tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
