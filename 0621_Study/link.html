@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+
+    function move(){
+        setTimeout(function(){
+            location.href="https://naver.com";
+        } ,3000);
+
+    }
+
+
+</script>
+
+</head>
+<body>
+    <a href="javascript:move();">3초 뒤 네이버로 이동</a>
+        <!--이쪽은 자바가 필요함
+        자바스크립트의 move 함수를 실행하라는 지정을 html로 하고
+        html에서는 3초뒤 이동-->
+    <a href="https://naver.com">네이버</a>
+    <a href="https://comic.naver.com/webtoon/list?titleId=773797&tab=fri">네이버웹툰</a>
+    <a href="./login.html">
+    <!--
+    href
+     :css 등에서 종종 보아온 링크 연결문 그거 맞음
+      웹페이지에 마우스 올려보면 좌하단에 이동할 페이지 주소가 뜸
+
+    웹 데이터 전달 방식
+    GET : 전달값을 그대로 전달. 파라미터(쿼리)
+        https://comic.naver.com/webtoon/list?titleId=773797&tab=fri에서 ? 다음이 쿼리임
+        -브라우저 히스토리(방문페이지)에 저장됨
+        -쿼리스트링의 길이는 제한적 : 브라우저에 따라 다름
+        -titldId = 변수이름 : 변수 저장방식임
+                             해당 변수명에 773797을 저장해라
+        -
+
+    -->
+        <div id ="movie" style="height: 1000px;">
+            <a href="#movie">영화</a>
+            <a href="#webtoon">웹툰</a>
+            <a href="#game">게임</a>
+            <h2>여기는 영화</h2>
+        </div>
+        <div id ="webtoon" style="height: 1000px;">
+            <a href="#movie">영화</a>
+            <a href="#webtoon">웹툰</a>
+            <a href="#game">게임</a>
+            <h2>여기는 웹툰</h2>
+        </div>
+        <div id ="game" style="height: 1000px;">
+            <a href="#movie">영화</a>
+            <a href="#webtoon">웹툰</a>
+            <a href="#game">게임</a>
+            <h2>여기는 게임</h2>
+        </div>
+
+        <!--
+        a태그 통해서 #아이디명으로 다른 페이지 이동 가능
+        -->
+    
+</body>
+</html>
