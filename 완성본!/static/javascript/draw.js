@@ -108,6 +108,7 @@ $(document).ready(function() {
     }
 
     // 그리기 함수
+    // 숙제 : 수요일까지 함수에 관한 모든 부분에 주석을 달것.
     function draw() {
         if (!gameStarted) return;
 
