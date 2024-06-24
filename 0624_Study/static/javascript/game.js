@@ -11,7 +11,7 @@ let clickStop = true;
 
 function imgClick(){
     if(!clickStop) return; 
-        //클릭 스탑이 거짓일 경우 시간이 흐르지 않는다.
+        //두 번 이상 클릭 방지
     var idx = $(".item").index($(this));
         //몇 번째 div를 클릭했는지 인덱스 값으로 표시할 것
     var $clicking =  $(".item").eq(idx).find("img")
