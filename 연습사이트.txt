@@ -30,3 +30,12 @@ https://icons.getbootstrap.com/
 
 
 JSON 이용할 때 쓰면 좋은 거 : Postman 프로그램
+
+웹에디터 지원하는 거(제이쿼리, 부트스탭 필수)
+https://summernote.org/
+
+<form method="post">
+  <textarea id="summernote" name="editordata"></textarea>
+</form>
+
+자바 11버전 다운 받을 것(Oracle 사이트에서 받아야 함)

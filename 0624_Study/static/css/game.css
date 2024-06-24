@@ -1,0 +1,28 @@
+*{padding : 0; margin: 0; box-sizing: border-box;}
+img{width: 100%;}
+#wrap{width : 1000px; margin: 50px auto; display: flex;}
+#wrap .hide{display: none;}
+
+#gameState{width: 200px; padding-right: 50px;}
+#gameStart{width: 100%;}
+#start{width: 100%;}
+#state{font-size: 20px;}
+
+#gameBoard{width: 800px;}
+#board{width:100%; display: flex; flex-wrap: wrap;}
+
+.item{
+    width: 25%; 
+    padding: 10px; 
+    height: 250px;
+    display: flex;
+    align-items: center;
+}
+
+.itemHide{
+    background: #aaa; 
+    height: 100%;
+    width: 100%;
+}
+
+.select{border: 1px solid red;}
