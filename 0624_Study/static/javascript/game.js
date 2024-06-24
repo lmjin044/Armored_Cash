@@ -33,6 +33,7 @@ function imgClick(){
         //첫 번째~두 번째 선택한 이미지가 같으면 띄우고 다르면 1초 뒤에 감추기
         
         if(matching()){
+            score++;
             //두 이미지가 같을 경우
             $(".item").eq( selectImg[0].div).find("img").removeClass("select");
             $(".item").eq( selectImg[1].div).find("img").removeClass("select");
@@ -52,16 +53,13 @@ function imgClick(){
                 $(".item").eq( selectImg[1].div).find("img").removeClass("select");
                 $(".item").eq( selectImg[0].div).find("img").addClass("hide");
                 $(".item").eq( selectImg[1].div).find("img").addClass("hide");
+                selectImg = [];
+                //비교가 끝날 적마다 다음을 위해 초기화 할 것
+                clickStop = true;
+    
             },1000);
-            selectImg = [];
-            //비교가 끝날 적마다 다음을 위해 초기화 할 것
-            clickStop = true;
-
-
-        
         }
     }
-
     updateState();
 }
 
