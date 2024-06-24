@@ -29,7 +29,7 @@ function imgClick(){
         //화면 클릭시 보이는 이미지 = imgPlace 배열 값을 imgName 배열의 인덱스로
         //imgPlace에 3이 있으면 imgName의 인덱스 중 3에 해당하는 이미지가 보이게끔
         //selectImg에 클릭한 인덱스와 div태그의 인덱스를 {} 방식을 이용해 저장
-    if(selectImg.length === 2){
+    if(selectImg.length == 2){
         //첫 번째~두 번째 선택한 이미지가 같으면 띄우고 다르면 1초 뒤에 감추기
         
         if(matching()){
