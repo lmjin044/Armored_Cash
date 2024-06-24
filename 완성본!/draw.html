@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사과를 품은 꿈틀이</title>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous">
+    </script>
+    <script src="./static/javascript/draw.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+            margin: 0;
+            flex-direction: column;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            width: 20px;
+            height: 20px;
+            border: 1px solid black;
+            background-color: #d2b48c; /* 연한 갈색 */
+        }
+        .snake {
+            background-color: darkgreen;
+        }
+        .apple {
+            background-color: red;
+        }
+        .obstacle {
+            background-color: aqua;
+        }
+        .wall {
+            background-color: black;
+        }
+        .enemy-snake {
+            background-color: white;
+        }
+        #timer {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: black;
+            font-size: 20px;
+        }
+        #score {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: black;
+            font-size: 20px;
+        }
+        #titleScreen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #gameContainer {
+            display: none;
+            position: relative;
+        }
+        #gameOverScreen {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div id="titleScreen">
+        <h1>사과를 품은 꿈틀이</h1>
+        <button id="startButton">게임 시작</button>
+    </div>
+    <div id="gameContainer">
+        <div id="timer">60</div>
+        <div id="score">점수: 0</div>
+        <table id="gameBoard"></table>
+        <div id="gameOverScreen">
+            <h1>게임 오버</h1>
+            <button id="restartButton">재시작</button>
+            <button id="titleButton">타이틀로 돌아가기</button>
+        </div>
+    </div>
+    <script src="path/to/your/javascript/file.js"></script>
+</body>
+</html>

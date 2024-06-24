@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous">
+    </script>
+<script src ="./static/javascript/signup.js"></script>
+<link rel="stylesheet" href="./static/css/signup.css">
+
+
+</head>
+
+
+<body>
+    <div id ="wrap">
+        <h2 id="pageTitle">회원가입</h2>
+        <form id="signupForm" method="GET" action="./signupComplete.html">
+            <fieldset class="fd"> <!--특정 영역을 그룹화하여 표시할 때 써주는 것-->
+                <legend>필수입력</legend><!--글자가 박스 줄 사이에 끼어서 표시가 됨-->
+                
+                <div id = "essntial" class="signupField">
+                    <div class="inputField">
+                        <label for="userId">아이디</label>
+                        <input type="text" name="userId" id="userId"
+                        maxlength="20" minlength="6" 
+                        placeholder="아이디는 6~20자로 입력해주세요">
+                    </div>
+                    <div class="inputField">
+                        <label for="userPw">비밀번호</label>
+                        <input type="password" name="userPw" id="userPw"
+                        maxlength="15" minlength="8"
+                        placeholder="비밀번호는 8~15자로 입력해주세요">
+                    </div>
+                    <div class="inputField">
+                        <label for="pwRe">비밀번호확인</label>
+                        <input type="password" id="pwRe">
+                        <!--서버에 넘기지 않는 부분이기 때문에 굳이 name을 안 붙임
+                        -->
+                    </div>
+                    <div class="inputField">
+                        <label for="email">이메일</label>
+                        <input type="email" name="email" id="email">
+                    </div>
+                    <div class="inputField">
+                        <label for="tel">연락처</label>
+                        <input type="text" name="tel" id="tel">
+                    </div>
+                    <div class="inputField">
+                        <label for="addr">주소</label>
+                        <input type="text" name="addr" id="addr" required>
+                    </div>
+<!--※name값 꼭 반드시 넣어야 데이터 전달 된다. name이 변수역할을 하므로
+    ※input태그 내에 id와 name은 같게 해줘야 작업할 때 편하다
+    ※label 내에서의 for가 가지는 역할 : 지정 텍스트 클릭시 자동으로 input태그에 커서가 들어감
+    ※required : input태그 내에서 자동으로 체크를 하게 도와줌(button태그가 submit일때)
+    
+-->
+                </div>
+            </fieldset>
+
+            <fieldset class="fd">
+                <legend>선택입력</legend>
+                <div id="choice" class="signupField">
+                    <div>
+                        <h3>관심분야</h3>
+                        <div class ="interest">
+                            <p><input type="checkbox" name="interest" value="game">게임</p>
+                            <!--마찬가지로 서버에 전송할 목적이라면 name값을 줘야 한다.-->
+                            <p><input type="checkbox" name="interest" value="music">음악</p>
+                            <p><input type="checkbox" name="interest" value="movie">영화</p>
+                            <p><input type="checkbox" name="interest" value="nobel">소설</p>
+                            <p><input type="checkbox" name="interest" value="webtoon">웹툰</p>
+                            <p><input type="checkbox" name="interest" value="sport">스포츠</p>
+                            <p><input type="checkbox" name="interest" value="news">뉴스</p>
+                            <p><input type="checkbox" name="interest" value="entertain">연예</p>
+                            <p><input type="checkbox" name="interest" value="car">자동차</p>
+                            <p><input type="checkbox" name="interest" value="fashion">패션</p>
+
+                        </div>
+                    </div>
+                    <div style="width: 100%;">
+                        <h3>직업</h3>
+                        <div class ="joblist">
+                            <input type ="radio" name="job" value="학생">학생
+                            <input type ="radio" name="job" value="법조인">법조인
+                            <input type ="radio" name="job" value="공무원">공무원
+                            <input type ="radio" name="job" value="프로그래머">프로그래머
+                        </div>
+                    </div>
+                    <div style="width: 100%;">
+                        <h3>나와 닮은 연예인</h3>
+                        <input type="file" id="portrait">
+                        <div id="preview"> </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div id ="signupButton"></div>
+                <button type="submit" id="signup">회원가입</button>
+        </form>
+
+    </div>
+</body>
+</html>

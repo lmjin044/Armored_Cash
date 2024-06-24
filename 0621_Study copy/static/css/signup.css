@@ -1,0 +1,86 @@
+*{padding:0; margin: 0; box-sizing: border-box;}
+#wrap{width: 700px; margin:0 auto;}
+#pageTitle{text-align: center; padding: 30px 0;}
+.fd{
+    /*form태그에는 스타일 주는게 아님 = 그 상위에 감싸는 영역을 만들어서 해라*/
+    padding: 15px; 
+    border-radius: 7px;
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+
+.signupField{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    row-gap: 15px;
+}
+
+.inputField{
+    display: flex;
+    width:100%;
+    align-items: center;
+}
+
+.inputField label{width: 30%; padding: 0 20px;}
+
+.inputField input{
+    width: 70%;
+    padding: 10px;
+    border-radius: 7px;
+    font-size: 20px;
+}
+
+#userId{width: 40%;}
+#userPw, #pwRe{width: 50%;}
+    /*텍스트 입력 제한은 폼 태그 안에 있으면 html로 하는게 더 간편함*/
+#tel{width: 40%;}
+.interest{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.interest p{padding: 7px 20px;}
+.interest p input{
+    margin-right: 10px;
+    width: 20px; height: 20px;
+    /*input 태그 자체를 키울때는 너비, 높이 둘다 줘야 크기가 커짐*/
+}
+
+.jobList{
+    display: flex; 
+    width: 100%;
+    align-items: center;
+    column-gap: 15px;
+}
+
+.input[name=job]{
+    /*input 태그 중 특정 name에만 효과를 주고 싶을 때*/
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+#preview{
+    width: 150px;
+    height: 200px;
+    border: 1px solid black;
+    margin-top: 15px;
+}
+
+#signupButton{width: 100%; padding-bottom: 50px;}
+#signup{
+    width: 500px; 
+    padding: 10px 0; 
+    border: 0; 
+    border-radius: 7px;
+    font-size: 25px;
+    background: lightskyblue;
+    color:aliceblue;
+    font-weight: 700;
+    cursor: pointer;
+}
