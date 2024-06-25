@@ -1,0 +1,92 @@
+*{padding: 0; margin: 0; box-sizing: border-box;}
+ul{list-style: none;}
+li{list-style: none;}
+a{
+    text-decoration: none; 
+    color: gray;
+}
+h3{padding-top:30px;}
+h4{
+    width: 20%;
+    text-align: right; 
+    font-size: 25px;
+
+}
+
+img{width: 100%;}
+span{display: block;}
+#wrap{width: 1000px; margin: 0 auto;}
+
+#box1{
+    width:100%;
+    padding-top:30px;
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 10px;
+}
+
+#searchArea{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#menuList{
+    width :100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#menuList>ul>li{
+    float: left;
+    position: relative;
+    box-sizing: border-box;
+    width : 100px;
+    border : 1px solid #aaa;
+    font-size: 15px;
+}
+
+#menuList>ul>li>ul{
+    width:30px;
+    padding:0%;
+	display:none;
+	position: absolute;
+    border: 1px solid #aaa;
+    font-size: 15px;
+    color:#aaa;
+    text-align: center;
+}
+
+#menuList>ul>li:hover>ul{display:block;}
+
+#search{
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+    position: relative;
+    height: 30px;
+    border: 1px solid darkblue;
+}
+
+input::placeholder{
+    text-align: right;
+    font-size: 20px;
+}
+
+
+#list{
+    width: 100%;
+    display:flex; 
+    flex-wrap: wrap;  
+    text-align: center;
+}
+
+.item{
+    width:20%;
+    margin:20px;
+    height: 250px;
+    display: flex;
+    border: 2px solid darkblue;
+}
