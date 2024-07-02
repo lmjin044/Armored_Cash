@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+var youngDice1=0, youngDice2=0, youngDice3=0;
+var gyongDice1=0, gyongDice2=0, gyongDice3=0;
+
+youngDice1 = Math.floor(math.random()*6)+1;
+youngDice2 = Math.floor(math.random()*6)+1;
+youngDice3 = Math.floor(math.random()*6)+1;
+gyongDice1 = Math.floor(math.random()*6)+1;
+gyongDice2 = Math.floor(math.random()*6)+1;
+gyongDice3 = Math.floor(math.random()*6)+1;
+
+youngSum = youngDice1+youngDice2+youngDice3;
+gyongSum = gyongDice1+gyongDice2+gyongDice3;
+
+if(youngSum>gyongSum){  //경제가 승리하는 경우
+    //이하 영진이 이길 수 있는 유이한 수.
+    if(youngSum == 18){ //지만 영진이 18을 달성했을 예외의 경우
+        document.write("영진 승");
+    
+    }else if(((youngDice1==3)&&(youngDice2==3)) || //영진의 주사위 두개가 전부 3이 나오는 경우
+             ((youngDice2==3)&&(youngDice3==3)) ||
+             ((youngDice1==3)&&(youngDice3==3)) )
+    {   document.write("영진 승");
+    }else{
+        document.write("경제 승");
+    }
+}else if(youngsum<gyongSum){  //영진이 승리하는 경우
+    //에서 경제가 이길 수 있는 유이한 수.
+    if(gyongSum == 18){       //지만 경제가 18을 달성했을 예외의 경우
+        document.write("경제 승");
+    }else if(((gyongDice1==3)&&(gyongDice2==3)) ||  //경제의 주사위 두개가 전부 3이 나오는 경우
+             ((gyongDice2==3)&&(gyongDice3==3)) ||
+             ((gyongDice1==3)&&(gyongDice3==3)) )
+    {   document.write("경제 승");
+    }else{
+        document.write("영진 승");
+    }
+//여기까지 내려온 시점에서 생각할 수 있는 경우의 수 : 결과값은 동일하다.
+//하지만 하나는 1, 5, 3 다른 하나는 3, 3, 2일 경우와 같은 것.
+
+}else{  
+    if(((youngDice1==3)&&(youngDice2==3)) ||
+       ((youngDice2==3)&&(youngDice3==3)) ||
+       ((youngDice1==3)&&(youngDice3==3)) )
+       
+       {if((((gyongDice1==3)&&(gyongDice2==3)) ||  
+             ((gyongDice2==3)&&(gyongDice3==3)) ||
+             ((gyongDice1==3)&&(gyongDice3==3)) )){
+                
+             }document.write("경제 승");
+
+
+
+        document.write("영진 승");
+
+    }else if(((gyongDice1==3)&&(gyongDice2==3)) ||  
+             ((gyongDice2==3)&&(gyongDice3==3)) ||
+             ((gyongDice1==3)&&(gyongDice3==3)) ){        
+        document.write("경제 승");
+    }
+    document.write("무승부");
+}
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
