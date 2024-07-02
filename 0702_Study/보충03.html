@@ -5,15 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 <script>
+//q.분식집 메뉴 : 라면 3500, 떡볶이 4500, 라볶이 5500, 오므라이스 6000일때 
+//입력한 금액에 따라 어떤 메뉴를 먹을 수 있는가?
+
+ramen = 3500;
+dduck = 4500;
+radduck = 5500;
+rice = 6000;
+
+cost = 3700;
+
+if(cost>=rice){
+    console.log("오므라이스");
+}else if(cost>=radduck){
+    console.log("라볶이");
+}else if(cost>=dduck){
+    console.log("떡볶이");
+}else if(cost>=ramen){
+    console.log("라면");
+}else{
+    console.log("집에 가");
+}
+
+//반복문 : 조건식은 어쨌든 필요함. 그래야 반복할거 아냐
+//for문 : 만약 화면에 1부터 1000까지 표시한다면?
+//start = 6, end=15, step=-1 >> (6부터 시작해 0으로 역주행함 : step이 -1일때)
+
+//반복문의 변수 초기값은 1, 끝 변수는?
+//응용하자면 비번 5회 입력 후 실패시 1일 정지 이런 것도 가능.
+/*
+money =50;
+for(i=1; i<=money; i++){
+
+}
+
+//10m 파이프 4개가 있을 때 1m단위로 자르려면?
+
+for(i=1; i<=36; i++){
+    //왜냐면 9번을 잘라야 1m짜리로 10개가 나눠지므로.
+}
+
+//곰돌이 인형의 눈알 34개를 붙인다고 하면?
+for(i=1; i<=68;i++){
+
+}*/
+
+
+//4부터 시작해 1씩 증가하는 숫자를 총 10개 출력하시오.
+/*num =4;
+for(i=1; i<=10; i++){
+    console.log(num);
+    document.write("<br>"+num);
+    num++
+
+    갑자기 왜 num을 쓰느냐면 변수 i는 1로 시작하는게 보기에 편하기 때문.
+    따라서 더하는 i값만 1을 기준으로 두고, 실질적으로 num이 그 계산을 하도록.
+}
+
+
+for (var i = 5; i >= 0; i--) {
+    console.log(i);
+}
+
+입력한 연도부터 10년 전까지 반복문을 사용해 연도를 출력하시오.
+*/
+
+year = 2020;
+for(i=11; i>=1; i--){
+    console.log(year);
+    year--;
+}
 
 
 
 
-    
 </script>
 
 </head>
 <body>
-    
+
 </body>
 </html>
