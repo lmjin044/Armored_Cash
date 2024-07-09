@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous">
+    </script>
+
+
+</head>
+<body>
+    <div id ="box1">나는 div</div>
+    <p class="a">나는 p태그</p>
+    <span class = "a">나는 span class</span>
+    <b id ="text1">나는 b태그</b>
+
+    <style>
+        #selectMenu{
+            position:relative;
+            top:-200px; left:250px;
+            width:200px; height:200px;
+            border:2px solid #aaa; border-radius: 7px;
+            font-size: 30px; text-align: center;
+            line-height: 200px;
+        }
+    </style>
+
+
+    <div id="lunch">
+        <h3>점심 메뉴를 고르시오!</h3>
+        <ol>
+            <li class = "menu">짬뽕</li>
+            <li class = "menu">곰탕</li>
+            <li class = "menu">콩나물국밥</li>
+            <li class = "menu">돈가스</li>
+            <li class = "menu">쭈꾸미철판볶음</li>
+            <li class = "menu">잔치국수</li>
+        </ol>
+    </div>
+
+    <div id = "selectMenu"></div>
+    
+
+<script>
+//기억하자 : HTML 다음은 CSS 작업이고 그 다음이 JavaScript다.
+
+$(".menu").on("click", selectMenu );
+    //meue 클래스 전부 선택하고 싶으면 그냥 eq빼면 된다.
+    //근데 순수 자바스크립트면 반복문도 돌려야 함
+
+function selectMenu(){
+    var menu = $(this).text(); //이러면 클릭한 텍스트를 menu라는 변수로 가져올 수 있게 됨
+    $("#selectMenu").text(menu);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //id가 text1인 태그에 잇는 글자 색을 빨강색으로 변경해보기
+
+    $("#text1").on("click", function(){
+        $(this).css("color","red");
+    });
+
+    $(".a").eq(0).on("click", event1);
+    function event1(){
+        $("body").append("<div>로또 1등 되면 좋겠다...!!</div>");
+        //클릭 했을 때, 무엇을 할 것인가?의 그 무엇이 들어가는 자리.
+        //p태그를 클릭해 b태그 아래에 div태그를 형성하고 그 div태그에 "로또 1등되면 좋겠다"라고 출력하기.
+        //일단 b태그는 body태그 맨 아랫줄에 있으니까 append를 쓰면 맨 아랫줄에 글자가 있는 div태그가 형성되는거임.
+    }
+//span 태그를 클릭하면 id가 box1인 태그 안에 h2태그를 만들고 그 안에는 "비 좀 그만 오라고"를 출력해보기
+
+    $(".a").eq(1).on("click",function(){
+        $("#box1").append("<h2>비야 그만 와라</h2>");
+        $(this).hide(); //show() : 태그의 display값을 원복
+    }); 
+        //왜 1번 인덱스임? a라는 배열의 2번째가 span태그를 가지고 있는거라고 생각하자.
+    
+//id가 box1인 태그를 클릭하면 span태그를 보이게 하고 box1태그 안을 비우게 하기?
+    $("#box1").on("click", function(){
+        $(".a").eq(1).show();
+        $(this).find("h2").remove();
+    });
+
+
+        //on() = ( )안의 이벤트를 활성화 시키겠다. ↔ 이벤트 비활성화 : off
+        //        ㄴ이벤트가 될 함수가 들어가는 자리임. 
+        //          함수명만 쓰고 그 아래에 function 이벤트명 (){이벤트로 실행할 내용}적어도 됨
+        //          
+        //dblclick은 더블클릭의 준말임
+    // document.getElementsByClassName("a")[0].addEventListner("click", function(){
+    //     alert("p태그 맞다니깐!")
+    // });
+        //= a라는 클래스 이름을 가진 []번 인덱스 내에 ()안의 이벤트 = 클릭시 문구가 뜨는 알람 이벤트를 추가하시오라는 거시기임.
+        //그리고 사용자는 이게 몇 번 인덱스인지 디테일한거 모름.
+        //사용자가 알아야 할 것 : '클릭하면 XX이 실행된다'이므로.
+//jQuery 버전 : $(".a").eq(0).click(function(){alert("p태그라니까")}); 
+
+
+
+</script>
+</body>
+</html>
+
+<!--
+오늘의 할 일 : 이벤트
+이벤트? 브라우저에서 발생하는 모든 행동(마우스가 움직이고 키가 입력되고 등등등)
+        ㄴ전부 자바스크립트에서만 처리 가능 : 하지만 CSS로 커버가 가능하다.
+
+    ☆키보드 관련 이벤트 : keyUp, KeyDown, KeyPress를 input태그 내에서 작용했을 때
+    ☆마우스 관련 이벤트 : click, doubleclick, hover 등
+        ★그 중에서도 click 이벤트가 제일 많아!!
+    ☆스마트폰 관련 이벤트 : 터치
+
+적용범위 : 
+    1)id = 단일
+        >> document.getElementById~
+    2)class, name, tag = 다중 = 배열 : 그래서 getElement's'로 복수형 사용
+        >> document.getElementsByClassName~
+           document.getElementsByTagName~
+           document.getElementsByName~
+-->

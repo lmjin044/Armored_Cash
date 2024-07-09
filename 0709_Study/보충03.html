@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous">
+</script>
+
+</head>
+<body>
+    <style>
+        #slide{width:700px; height:400px; overflow:hidden;}
+        #slideImg{list-style-type:none; width:2800px; position:relative;
+                  display:flex; padding:0; margin:0; right:0;
+                  transition : right 1s;}
+
+        li:nth-child(1){width:700px; height:400px; 
+                        background:url(./static/image/B004824317.jpg) no-repeat center;
+                        background-size:cover;}
+    
+        li:nth-child(2){width: 700px; height: 400px;
+                        background:url(./static/image/B005300948.jpg) no-repeat center;
+                        background-size:cover;}
+
+        li:nth-child(3){width: 700px; height: 400px;
+                         background:url(./static/image/hot1637652185613.jpg) no-repeat center;
+                        background-size:cover;}
+
+        li:nth-child(4){width: 700px; height: 400px;
+                        background:url(./static/image/중형-강아지-종류-7.webp) no-repeat center;
+                        background-size:cover;}
+
+
+
+    </style>
+    <div id ="slide">
+        <ul id = "slideImg">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <button id="left">◁</button>
+    <button id="right">▷</button>
+
+<script>
+let pos =0;
+
+$("#left").on("click",function(){
+    pos = pos+700;
+    if(pos==2800) pos =0;
+    $("#slideImg").css("right", pos+"px");
+});
+
+$("#right").on("click",function(){
+    pos=pos-700;
+    if(pos==-700) pos=2100;
+    $("#slideImg").css("right", pos+"px");
+});
+
+//응용 : 코드펜에 들어가서 다른 방식으로 슬라이드를 작동시키는 방법에 대해 아라보자.
+</script>
+
+</body>
+</html>
